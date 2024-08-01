@@ -1,0 +1,14 @@
+.helpCenter{
+    padding: .5rem 1rem;
+    transition: all .3 ease-in;
+    
+}
+.helpCenter:hover{
+    background-color:#4c5773;
+    color: #d3dae7;
+    border-radius: .3rem;
+}
+.textstyle{
+    text-decoration: none;
+    color: #000000c6;
+}
