@@ -3,5 +3,6 @@ import Footer from "./Footer/Footer"
 import NavBar from "./navBar/NavBar"
 import HeroSection from "./HeroSection/HeroSection";
 import Service from "./Service/Service"
+import BigNftSlider from "./BigNFTSlider/BigNftSlider";
 
-export {Button,Footer,NavBar,HeroSection,Service};
+export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider};
