@@ -1,7 +1,7 @@
 import React from 'react'
 //Internal Import
 import Style from "../styles/index.module.css"
-import {HeroSection,Service,BigNftSlider} from "../components/ComponentIndex"
+import {HeroSection,Service,BigNftSlider,Subscribe} from "../components/ComponentIndex"
 
 const Home = () => {
   return (
@@ -9,6 +9,7 @@ const Home = () => {
       <HeroSection/>
       <Service/>
       <BigNftSlider/>
+      <Subscribe/>
     </div>
   )
 }
