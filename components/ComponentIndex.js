@@ -5,5 +5,5 @@ import HeroSection from "./HeroSection/HeroSection";
 import Service from "./Service/Service"
 import BigNftSlider from "./BigNFTSlider/BigNftSlider";
 import Subscribe from "./Subscribe/Subscribe";
-
-export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe};
+import Title from "./Title/title";
+export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe,Title};
