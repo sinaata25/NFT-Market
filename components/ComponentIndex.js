@@ -6,4 +6,5 @@ import Service from "./Service/Service"
 import BigNftSlider from "./BigNFTSlider/BigNftSlider";
 import Subscribe from "./Subscribe/Subscribe";
 import Title from "./Title/title";
-export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe,Title};
+import Category from "./Category/Category";
+export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe,Title,Category};
