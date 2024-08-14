@@ -7,4 +7,6 @@ import BigNftSlider from "./BigNFTSlider/BigNftSlider";
 import Subscribe from "./Subscribe/Subscribe";
 import Title from "./Title/title";
 import Category from "./Category/Category";
-export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe,Title,Category};
+import Filter from "./Filter/Filter";
+
+export {Button,Footer,NavBar,HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter};
