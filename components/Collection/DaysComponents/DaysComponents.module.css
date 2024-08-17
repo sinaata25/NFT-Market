@@ -1,0 +1,96 @@
+.daysComponent{
+    width: 100%;
+    border-radius: 1rem;
+    transition: all .3 ease-in;
+    background-color: #ecf0f347;
+    cursor: pointer;
+}
+
+
+.daysComponent:hover{
+box-shadow: 1rem 1rem 1rem #d3dae7,
+-1rem -1rem 1rem #fff; ;
+}
+.daysComponent_box_img_img{
+    border-radius: 1rem;
+    width: 100%;
+}
+.daysComponent_box_profile{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .5rem;
+}
+.daysComponent_box_img_1{
+    border-bottom-left-radius: 1rem;
+    width: 170px;
+    height: 80px;
+}
+.daysComponent_box_img_2{
+    width: 170px;
+    height: 80px;
+}
+.daysComponent_box_img_3{
+    border-bottom-right-radius: 1rem;
+    width: 170px;
+    height: 80px;
+}
+.daysComponent_box_title{
+    padding: 1rem 2rem;
+    line-height: 0;
+}
+.daysComponent_box_title_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.daysComponent_box_title_info_profile_img{
+    border-radius: 50%;
+}
+.daysComponent_box_title_info_profile_img span{
+    font-weight: 600;
+    padding-inline: .5rem;
+    
+} 
+.daysComponent_box_title_info_price small{
+font-weight: 600;
+border: 3px solid #4c5773;
+padding: .5rem;
+border-radius: .5rem;
+}
+.daysComponent_box_title{
+    padding: 1rem;
+}
+
+@media screen and (min-device-width:320px) and (max-device-width:768px) {
+    .daysComponent_box_profile{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .daysComponent_box_title_info{
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+}
+@media screen and (min-device-width:1025px) and (max-device-width:1600px) {
+
+    .daysComponent_box_img_1{
+        border-bottom-left-radius: 1rem;
+        width: 160px;
+        height: 80px;
+    }
+    .daysComponent_box_img_2{
+        width: 160px;
+        height: 80px;
+    }
+    .daysComponent_box_img_3{
+        border-bottom-right-radius: 1rem;
+        width: 160px;
+        height: 80px;
+    }
+    .daysComponent_box_profile{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: .3rem;
+    }
+}

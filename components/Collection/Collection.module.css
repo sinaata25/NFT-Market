@@ -42,8 +42,9 @@
     width: 80%;
     margin: 0 auto;
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(3,1fr);
-    gap: 2erm;
+    gap: 1rem;
 }
 
 @media screen and (min-device-width:320px) and (max-device-width:425px) {
@@ -72,4 +73,14 @@
     .collection_collections_btn button{
         font-size: .7rem;
     }
+}
+
+@media screen and (min-device-width:1025px) and (max-device-width:1600px) {
+
+    .collection_box{
+        width: 100%;
+        grid-template-columns:repeat(3,1fr);
+        gap: 1rem;
+    }
+
 }

@@ -13,9 +13,9 @@ const DaysComponents = () => {
             <Image src={images.creatorbackground1} className={Style.daysComponent_box_img_img} alt="profile background" width={500} height={300} objectFit="covers" />  
           </div>
           <div className={Style.daysComponent_box_profile} >
-            <Image src={images.creatorbackground2} alt="profile" width={200} height={200} className={Style.daysComponent_box_img_1} objectFit="covers" />
-            <Image src={images.creatorbackground2} alt="profile" width={200} height={200} className={Style.daysComponent_box_img_2} objectFit="covers" />
-            <Image src={images.creatorbackground2} alt="profile" width={200} height={200} className={Style.daysComponent_box_img_3} objectFit="covers" />
+            <Image src={images.creatorbackground2} alt="profile"  className={Style.daysComponent_box_img_1} objectFit="covers" />
+            <Image src={images.creatorbackground2} alt="profile" className={Style.daysComponent_box_img_2} objectFit="covers" />
+            <Image src={images.creatorbackground2} alt="profile" className={Style.daysComponent_box_img_3} objectFit="covers" />
           </div>
         <div className={Style.daysComponent_box_title}>
           <h2>Amazing Collection</h2>
@@ -29,7 +29,7 @@ const DaysComponents = () => {
                 </span>
               </p>
             </div>
-            <div className={Style.daysComponent_box_title_info_profile} >
+            <div className={Style.daysComponent_box_title_info_price} >
               <small>1.255 ETH</small>
             </div>
           </div>

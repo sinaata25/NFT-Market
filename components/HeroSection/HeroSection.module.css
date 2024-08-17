@@ -17,7 +17,10 @@
 .heroSection_box_left p{
     margin-bottom: 2rem;
 }
-
+.heroSection_box_right_img_1{
+    width: 600px;
+    height: 600px;
+}
 
 
 
@@ -38,4 +41,11 @@
         line-height: 1;
         font-size: 3rem;
     }
+}
+@media screen and (min-device-width:1025px) and (max-device-width:1600px) {
+.heroSection_box_right_img_1{
+width: 500px;
+height: 500px;
+}
+
 }
