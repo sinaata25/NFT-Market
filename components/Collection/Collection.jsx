@@ -46,13 +46,13 @@ const Collection = () => {
         <div className={Style.collection_collections} >
           <div className={Style.collection_collections_btn} >
               <button onClick={()=>openPopular()} >
-                <BsFillAlarmFill/> Last 24 hours
+                <BsFillAlarmFill/> 24 hours
               </button>
               <button onClick={()=>openFollower()} >
-                <BsCalendar3/> Last 7 days
+                <BsCalendar3/> 7 days
               </button>
               <button onClick={()=>openNews()} >
-                <BsFillCalendarDateFill/> Last 30 days
+                <BsFillCalendarDateFill/> 30 days
               </button>
           </div>
         </div>
