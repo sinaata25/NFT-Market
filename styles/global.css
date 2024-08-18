@@ -10,8 +10,8 @@
   --shadow-light-color: #fff;
   --main-bg-color: #ecf0f3;
 
-  --box-shadow: 1rem 1rem 1rem var(--shadow-dark-color),
-  -1rem -1rem 1rem var(--shadow-light-color);
+  --box-shadow: 1rem 1rem 1rem #d3dae7,
+  -1rem -1rem 1rem #fff;
 
   --box-shadow-2: 0rem 0rem 0rem var(--shadow-dark-color),
   -.3rem -.3rem 1rem var(--shadow-dark-color)
