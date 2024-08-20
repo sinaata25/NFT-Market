@@ -74,6 +74,9 @@
     -1rem -1rem 1rem #fff;
     font-size: 1.3rem;
 }
+.followerTab_member{
+    text-align: center;
+}
 
 @media screen and (min-device-width:320px) and (max-device-width:425px){
     .followerTab{
