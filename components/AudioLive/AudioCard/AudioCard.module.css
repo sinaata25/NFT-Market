@@ -3,14 +3,20 @@
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(6,4rem);
     gap: 1rem;
+    background-color: #ecf0f3;
     overflow: hidden;
+    transition: all .3s ease-in;
     border-radius:2rem ;
+}
+.audioCard_box:hover{
     box-shadow: 1rem 1rem 1rem #d3dae7,
     -1rem -1rem 1rem #fff;
 }
 .audioCard_box_img_img{
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .audioCard_box_player_img_img{
     width: 200px;
@@ -36,11 +42,11 @@
     overflow: hidden;
 }
 .audioCard_box_like_icon{
-    color: red;
+    color: #ecf0f3;
     font-size: 2rem;
 }
 .audioCard_box_like_icon_unlike{
-    color: red;
+    color: #ecf0f3;
     font-size: 2rem;
 }
 .audioCard_box_time{
@@ -75,7 +81,8 @@ text-align: center;
     display: flex;
     align-items: center;
     border-radius: 50%;
-    background-color: #ecf0f3;
+    background-color: #4c5773;
+    color: #ecf0f3;
     font-size: 2rem;
     cursor: pointer;
 }

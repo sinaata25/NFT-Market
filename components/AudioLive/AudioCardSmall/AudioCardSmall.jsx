@@ -4,6 +4,7 @@ import { TbPlayerPlay, TbPlayerPause} from 'react-icons/tb';
 //internal import
 import Style from "./AudioCardSmall.module.css"
 import images from "../../../img"
+import LikeProfile from "../../LikeProfile/LikeProfile"
 
 function AudioCardSmall(props) {
     const [play, setPlay] = useState(false)
@@ -21,7 +22,7 @@ function AudioCardSmall(props) {
                 <div className={Style.audioPlayer_box_info}>
                   <h4>NFT nusic #1442</h4>
                   <div className={Style.audioPlayer_box_info_box}>
-                    {/*<LikeProfile/>*/}
+                    <LikeProfile/>
                     <div className={Style.audioPlayer_box_info_box_price}>
                         <p>1.00 ETH</p>
                     </div>
