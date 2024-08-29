@@ -9,10 +9,10 @@
     grid-template-columns: 2.5fr 1fr;
     gap: 2rem;
 }
-.audioLive_box_right{
-    padding: .5rem 0 0 0;
+.audioLive_box_Right{
+    padding: .5rem 1 0 0;
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
 }
 .audioLive_box_left{
     display: grid;

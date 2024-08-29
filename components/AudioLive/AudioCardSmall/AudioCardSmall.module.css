@@ -2,4 +2,47 @@
 .audioPlayer_box_img{
     width: 100px;
     height: 100px;
+    border-radius: .5rem;
+}
+.audioPlayer_box{
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    align-items: center;
+    gap: 1.3rem;
+    line-height: 0;
+    background-color: #d3dae730;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    height: 8rem;
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+.audioPlayer_box:hover{
+    box-shadow: 1rem 1rem 1rem #d3dae7,
+    -1rem -1rem 1rem #fff;
+}
+.audioPlayer_box_info_box{
+    display: flex;
+    gap: 1rem;
+}
+.audioPlayer_box_info_box_price{
+    border: 1px solid #4c5773;
+    font-size: .8rem;
+    width: 40%;
+    font-weight: 600;
+    border-radius: .2rem;
+}
+.audioPlayer_box_info_box_price small{
+    background-color:#4c5773 ;
+    color:#ecf0f3 ;
+    padding: .1rem .3rem;
+    border-radius: .2rem;
+}
+.audioPlayer_box_info_box_price p{
+    margin-top: 1rem;
+}
+.audioPlayer_box_playBtn{
+    font-size: 2rem;
+    background-color: #ecf0f3;
+    border-radius: 50%;
 }
