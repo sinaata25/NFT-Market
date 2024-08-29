@@ -1,7 +1,7 @@
 import React from 'react'
 //Internal Import
 import Style from "../styles/index.module.css"
-import {HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter,NFTCard, Collection,FollowerTab,AudioLive} from "../components/ComponentIndex"
+import {HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter,NFTCard, Collection,FollowerTab,AudioLive,LikeProfile} from "../components/ComponentIndex"
 
 const Home = () => {
   return (
