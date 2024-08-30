@@ -26,9 +26,7 @@ const handleScroll=(direction)=>{
   return (
     <div className={Style.slider}>
         <div className={Style.slider_box}>
-            <h2>Explore NFTs Video</h2>
             <div className={Style.slider_box_button}>
-                <p>Click on play icon and enjoy NFTs Video</p>
                 <div className={Style.slider_box_button_btn}>
                     <div className={Style.slider_box_button_btn_icon}> 
                         <TiArrowLeftThick  onClick={()=>handleScroll("left")} />
