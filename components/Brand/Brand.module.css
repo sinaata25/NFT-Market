@@ -1,8 +1,39 @@
+.Brand{
+    width: 100%;
+    margin-top: 10rem;
+    margin-bottom: 7rem;
+}
+.Brand_box{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 5rem;
+    align-items: center;   
+}
+.Brand_box_left h1{
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: bolder;
+}
+.Brand_box_left p{
+    font-size: 1.3rem;
+    margin-top: -2rem;
+}
+.Brand_box_left_btn{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+
+
 .Brand_box_left_img{
     width: 100px;
     height: 100px;
 }
 .Brand_box_right_img{
-    width: 500px;
-    height: 400px;
+    width: 700px;
+    height: 600px;
 }
