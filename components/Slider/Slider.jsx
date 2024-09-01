@@ -4,24 +4,65 @@ import { TiArrowLeftThick,TiArrowRightThick } from 'react-icons/ti'
 //internal import
 import SliderCard from "./SliderCard/SliderCard"
 import Style from "./Slider.module.css"
-
+import images from "../../img"
 const Slider = () => {
-    const sliderArray=[1,2,3,4,5,6,7]
+    const sliderArray=[ {
+        background:images.creatorbackground4,
+        user:images.user9
+    },
+    {
+        background:images.creatorbackground5,
+        user:images.user2
+    },
+    {
+        background:images.creatorbackground3,
+        user:images.user3
+    },
+    {
+        background:images.creatorbackground9,
+        user:images.user4
+    },
+    {
+        background:images.creatorbackground2,
+        user:images.user5
+    }
+    ,        {
+        background:images.creatorbackground6,
+        user:images.user6
+    }
+    ,        {
+        background:images.creatorbackground8,
+        user:images.user8
+    }]
     const [width,setWidth]=useState(0);
     const dragSlider=useRef();
-    useEffect(()=>{
-        setWidth(dragSlider.current.scrollWidth-dragSlider.current.offsetWidth)
-    }
-    );
-const handleScroll=(direction)=>{
-    const {current}=dragSlider;
-    const scrollAmount=window.innerWidth > 1800 ? 270 :210; 
-    if(direction=="left"){
-        current.scrollLeft -=scrollAmount;
-    }else{
-        current.scrollLeft += scrollAmount;
-    }
-}
+    useEffect(() => {
+        const updateWidth = () => {
+            setWidth(dragSlider.current.scrollWidth - dragSlider.current.offsetWidth);
+        };
+
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        };
+    }, []);
+
+    const handleScroll = (direction) => {
+        const { current } = dragSlider;
+        const scrollAmount = window.innerWidth > 1800 ? 270 : 210;
+
+        if (direction === "left") {
+            current.scrollLeft = Math.max(0, current.scrollLeft - scrollAmount);
+        } else {
+            current.scrollLeft = Math.min(current.scrollLeft + scrollAmount, width);
+        }
+        
+        // Update width after each scroll
+        setWidth(current.scrollWidth - current.offsetWidth);
+    };
+
 
   return (
     <div className={Style.slider}>

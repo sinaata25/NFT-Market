@@ -2,14 +2,15 @@
     width: 100%;
 }
 .slider_box{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     padding: 0 -1rem 8rem 0;
 }
 .slider_box_button{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin-top: 2rem;
 }
 .slider_box_button_btn{
     display: flex;

@@ -7,6 +7,7 @@
     border-radius: 2rem;
     padding-bottom: 1rem;
     background-color: #4c577313;
+    width: 380px;
 }
 .sliderCard_box:hover{
     box-shadow: 1rem 1rem 1rem #d3dae7,
