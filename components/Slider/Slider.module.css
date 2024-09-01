@@ -32,17 +32,22 @@
     box-shadow: 1rem 1rem 1rem #d3dae7,
     -1rem -1rem 1rem #fff;
 }
-.slider_box_items{
+.slider_box_items {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto; /* فعال کردن اسکرول افقی */
+    overflow-y: hidden; /* مخفی کردن اسکرول بار عمودی */
+    white-space: nowrap;
 }
-.slider_box_item{
-    display: grid;
-    grid-template-columns:repeat(6,20.4rem) ;
-    gap: 1rem;
+
+.slider_box_item {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
     padding: 4rem 2rem;
     cursor: grab;
+    white-space: nowrap;
 }
-.slider_box_item::-webkit-scrollbar{
+
+.slider_box_items::-webkit-scrollbar{
 display: none;
 }
