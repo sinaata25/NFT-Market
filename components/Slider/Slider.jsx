@@ -28,11 +28,11 @@ const handleScroll=(direction)=>{
         <div className={Style.slider_box}>
             <div className={Style.slider_box_button}>
                 <div className={Style.slider_box_button_btn}>
-                    <div className={Style.slider_box_button_btn_icon}> 
-                        <TiArrowLeftThick  onClick={()=>handleScroll("left")} />
+                    <div className={Style.slider_box_button_btn_icon} onClick={()=>handleScroll("left")} > 
+                        <TiArrowLeftThick  />
                     </div>
-                    <div className={Style.slider_box_button_btn_icon}> 
-                        <TiArrowRightThick onClick={()=>handleScroll("right")} />
+                    <div className={Style.slider_box_button_btn_icon} onClick={()=>handleScroll("right")}> 
+                        <TiArrowRightThick  />
                     </div>       
                 </div>
             </div>

@@ -34,8 +34,8 @@
 }
 .slider_box_items {
     width: 100%;
-    overflow-x: auto; /* فعال کردن اسکرول افقی */
-    overflow-y: hidden; /* مخفی کردن اسکرول بار عمودی */
+    overflow-x: auto; 
+    overflow-y: hidden;
     white-space: nowrap;
 }
 
