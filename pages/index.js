@@ -1,7 +1,7 @@
 import React from 'react'
 //Internal Import
 import Style from "../styles/index.module.css"
-import {HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter,NFTCard, Collection,FollowerTab,AudioLive,Slider} from "../components/ComponentIndex"
+import {HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter,NFTCard, Collection,FollowerTab,AudioLive,Slider,Brand} from "../components/ComponentIndex"
 
 const Home = () => {
   return (
@@ -21,6 +21,7 @@ const Home = () => {
       <Title heading="Browse by category"  paragraph="Explore the most featured categories" />
       <Category/>
       <Subscribe/>
+      <Brand/>
     </div>
   )
 }
