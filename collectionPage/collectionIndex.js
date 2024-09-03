@@ -1,4 +1,3 @@
-import collectionProfile from "./collectionProfile/collectionProfile";
 import Banners from "./Banners/Banners";
-
-export {collectionProfile,Banners};
+import Profile from "./Profile/Profile";
+export {Banners,Profile};

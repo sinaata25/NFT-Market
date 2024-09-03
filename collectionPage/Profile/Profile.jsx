@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Style from "./collectionProfile.module.css"
+import Style from "./Profile.module.css"
 import { TiSocialFacebook,TiSocialLinkedin,TiSocialYoutube,TiSocialInstagram,TiArrowSortedDown,TiSocialTwitter,TiArrowSortedUp} from 'react-icons/ti'
 import images from "../../img"
 
@@ -30,6 +30,15 @@ const collectionProfile = () => {
         </div>
         <div className={Style.collectionProfile_box_middle}>
           <h1>Awesome NFTs Collection</h1>
+          <p>some text</p>
+          <div className={Style.collectionProfile_box_middle_box}>
+              {cardArray.map((el,i)=>(
+                <div className={Style.collectionProfile_box_middle_box_item}>
+                    <small>${i+1}95,8739</small>
+                    <span>+{i+2}.11%</span>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>
