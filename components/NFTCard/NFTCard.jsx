@@ -23,7 +23,7 @@ const NFTCard = () => {
             {featureArray.map((el,i)=>(
                 <div className={Style.NFTCard_box} key={i+1}>
                     <div className={Style.NFTCard_box_img} >
-                        <Image src={images.nft_image_1} alt="NFT images" width={600} height={600} className={Style.NFTCard_box_img_img} />
+                        <Image src={images.nft_image_1} alt="NFT images"  className={Style.NFTCard_box_img_img} />
                     </div>
                     <div className={Style.NFTCard_box_update} >
                        <div className={Style.NFTCard_box_update_left} >

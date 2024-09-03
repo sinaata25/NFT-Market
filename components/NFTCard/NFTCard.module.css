@@ -16,6 +16,10 @@
     box-shadow:1rem 1rem 1rem #d3dae7,
     -1rem -1rem 1rem #fff; 
 }
+.NFTCard_box_img_img{
+    width: 600px;
+    height: 600px;
+}
 .NFTCard_box:hover .NFTCard_box_img_img{
     transform: scale(1.05);
     border-radius: 1rem;
