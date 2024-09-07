@@ -106,7 +106,7 @@
     font-size: 1.3rem;
 }
 .NFTCard_box_update_details_price_box_box{
-    display: flex;
+    display: flex;  
     justify-content: space-between;
     align-items: flex-end;
 }
