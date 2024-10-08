@@ -3,20 +3,33 @@ import Style from "../styles/author.module.css"
 import {Banners,NftCardTwo} from "../collectionPage/collectionIndex"
 import { Brand,Title } from '../components/ComponentIndex'
 import images from "../img"
-import { AuthorProfileCard,AuthorTabs } from '../authorPage/componentIndex'
+import { AuthorProfileCard,AuthorTabs,AuthorNFTCardBox } from '../authorPage/componentIndex'
 import FollowerTabCard from '../components/FollowerTab/FollowerTabCard/FollowerTabCard'
 const author = () => {
-
-  const popularArray =[
-    images.user1,
-    images.user2,
-    images.user3,
-    images.user4,
-    images.user5,
-    images.user6,
-    images.user7,
-    images.user8,
-  ]
+  const followerArray=[
+    {
+        background:images.creatorbackground10,
+        user:images.user3
+    }
+    ,
+    {
+        background:images.creatorbackground8,
+        user:images.user2
+    }
+    ,
+    {
+        background:images.creatorbackground5,
+        user:images.user4
+    }
+    ,        {
+        background:images.creatorbackground4,
+        user:images.user6
+    }
+    ,        {
+        background:images.creatorbackground3,
+        user:images.user8
+    }
+]
   const [collectiables,setCollectiables]=useState(true);
   const [created,setCreated]=useState(false);
   const [like,setLike]=useState(false);
@@ -25,16 +38,17 @@ const author = () => {
 
 
   return (
-    <div className={Style.banner}>
-        <Banners bannerImage={images.creatorbackground1} />
+    <div className={Style.author}>
+        <Banners bannerImage={images.creatorbackground8} />
         <AuthorProfileCard/>
-        <AuthorTabs collectiables={setCollectiables} created={setCreated} like={setLike} follower={setFollower} following={setFollowing} />
+        <AuthorTabs setCollectiables={setCollectiables} setCreated={setCreated} setLike={setLike} setFollower={setFollower} setFollowing={setFollowing} />
+        <AuthorNFTCardBox collectiables={collectiables} created={created} like={like} follower={follower} following={following} />
         <Title heading="popular creators" paragraph="Click on music icon and enjoy NFT music or audio" />
-        {/*
-          popularArray.map((el,i)=>(
-            <FollowerTabCard key={i+1} i={i} el={el}/>
-          ))*/
-        }
+        <div className={Style.author_box}>
+          {followerArray.map((el,i)=>(
+            <FollowerTabCard i={i} el={el} />
+          ))}
+        </div>
         <Brand/>
     </div>
   )

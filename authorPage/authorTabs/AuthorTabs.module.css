@@ -1,0 +1,84 @@
+.AuthorTabs{
+    width: 100%;
+    margin: 8rem 0 3rem 0;
+}
+.AuthorTabs_box{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.AuthorTabs_box_left_btn{
+ display: flex;
+ gap: 2rem;
+ align-items: center;   
+}
+.AuthorTabs_box_left_btn button{
+    border: 1px solid #4c5773 ;
+    outline: 0;
+    background-color:#ecf0f3 ;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: all .3s ease-in;
+    color: #4c5773;
+}
+.AuthorTabs_box_left_btn .active{
+    border: 1px solid #4c5773;
+    background-color:#4c5773 ;
+    color: #ecf0f3;
+}
+.AuthorTabs_box_left_btn button:hover{
+    border: 1px solid #4c5773;
+    background-color: #4c5773;
+    color: #ecf0f3;
+}
+.AuthorTabs_box_right{
+    position: relative;
+}
+.AuthorTabs_box_right_para{
+    border: 1px solid #4c5773;
+    border-radius: 2rem;
+    width:12rem;
+    padding: 0 2rem;
+    display: grid;
+    align-items: center;
+    gap:1rem;
+    cursor: pointer;
+    grid-template-columns: 9fr 1fr;
+}
+.AuthorTabs_box_right_para p{
+    font-size: 1.2rem;
+    line-height: .5;
+}
+.AuthorTabs_box_right_list{
+    background-color: #ecf0f3;
+    padding: 1rem;
+    width: 15rem;
+    left: -3rem;
+    position: absolute;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+    box-shadow: 1rem 1rem 1rem #d3dae7,
+    -1rem -1rem 1rem #fff;
+    z-index: 111111111;
+}
+.AuthorTabs_box_right_list_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 0;
+    padding-right: 1rem;
+}
+.AuthorTabs_box_right_list_item p{
+    transition: all .3s ease-in;
+    padding: 0 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.AuthorTabs_box_right_list_item:hover{
+    background-color: #4c5773;
+    color: #ecf0f3;
+    border-radius: .2rem;
+}

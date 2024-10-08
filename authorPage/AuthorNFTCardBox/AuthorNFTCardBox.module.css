@@ -1,8 +1,11 @@
-.author_box{
+.AuthorNFTCardBox{
+    width: 100%;
+    margin-bottom: 10rem;
+}
+.AuthorNFTCardBox_box{
     width: 80%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 2rem;
-    margin-top: 5rem;
 }

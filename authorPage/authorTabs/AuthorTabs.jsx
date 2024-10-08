@@ -6,7 +6,7 @@ import Style from "./AuthorTabs.module.css"
 
 const AuthorTabs = ({setCollectiables,setCreated,setLike,setFollower,setFollowing}) => {
   const [openList,setOpenList]=useState(false);
-  const [activeBtn, setActiveBtn] = useState(0);
+  const [activeBtn, setActiveBtn] = useState(1);
   const [selectedMenu, setSelectedMenu] = useState("Most Recent")
   const listArray=[
     "Created by Admin",
