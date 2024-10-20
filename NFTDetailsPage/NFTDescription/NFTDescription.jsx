@@ -205,17 +205,17 @@ const NFTDescription = () => {
             </div>
             {history && (
               <div className={Style.NFTDescription_box_profile_biding_box_card} >
-                  <NFTTabs dataTab={""} />
+                  <NFTTabs dataTab={historyArray} />
               </div>
             )}
              {provanance && (
               <div className={Style.NFTDescription_box_profile_biding_box_card} >
-                  <NFTTabs dataTab={""} />
+                  <NFTTabs dataTab={provananceArray} />
               </div>
             )}
             {owner && (
               <div className={Style.NFTDescription_box_profile_biding_box_card} >
-                  <NFTTabs dataTab={""} />
+                  <NFTTabs dataTab={ownerArray} icon={<MdVerified/>} />
               </div>
             )}
         </div>
