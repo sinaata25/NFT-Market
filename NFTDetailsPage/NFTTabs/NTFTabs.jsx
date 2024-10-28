@@ -10,9 +10,9 @@ const NTFTabs = ({dataTab,icon}) => {
           <Image src={el} alt="profile image" className={Style.NTFTabs_box_img} />
           <div className={Style.NTFTabs_box_info}>
             <span>
-              offer by $770 by <small>Sina Ataei</small>
+              offer by $770 by <small>Sina Ataei</small> {icon}
             </span>
-            {icon}
+            
             <small>Jun14 - 4:12 PM</small>
           </div>
         </div>
