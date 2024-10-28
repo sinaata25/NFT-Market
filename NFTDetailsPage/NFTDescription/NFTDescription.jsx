@@ -53,7 +53,7 @@ const NFTDescription = () => {
   const openNFTMenu=()=>{
     if(!NFTMenu){
       setNFTMenu(true);
-      setNFTMenu(false);
+      setSocial(false);
     }else{
       setNFTMenu(false);
     }
@@ -94,19 +94,19 @@ const NFTDescription = () => {
             <MdCloudUpload className={Style.NFTDescription_box_share_box_icon} onClick={()=>openSocial()} />
             {social && (
             <div className={Style.NFTDescription_box_share_box_social} >
-                <a href="#" >
-                    <TiSocialFacebook/> Facebook
+                <a href="#" className={Style.NFTDescription_box_share_box_social_txt}  >
+                    <TiSocialFacebook /> Facebook
                 </a>
-                <a href="#" >
+                <a href="#" className={Style.NFTDescription_box_share_box_social_txt} >
                     <TiSocialInstagram/> Instagram
                 </a>
-                <a href="#" >
+                <a href="#" className={Style.NFTDescription_box_share_box_social_txt} >
                     <TiSocialLinkedin/> Linkedin
                 </a>
-                <a href="#" >
+                <a href="#" className={Style.NFTDescription_box_share_box_social_txt} >
                     <TiSocialYoutube/> Youtube
-                </a>
-                <a href="#" >
+                </a >
+                <a href="#"  className={Style.NFTDescription_box_share_box_social_txt}>
                     <TiSocialTwitter/> Twitter
                 </a>
             </div>
@@ -114,16 +114,16 @@ const NFTDescription = () => {
             <BsThreeDots className={Style.NFTDescription_box_share_box_icon} onClick={()=>openNFTMenu()} />
             {NFTMenu && (
               <div className={Style.NFTDescription_box_share_box_social}>
-                <a href="#">
+                <a href="#"  className={Style.NFTDescription_box_share_box_social_txt}>
                   <BiDollar/> Change Price 
                 </a>
-                <a href="#">
+                <a href="#"  className={Style.NFTDescription_box_share_box_social_txt}>
                   <BiTransferAlt/> Transfer 
                 </a>
-                <a href="#">
+                <a href="#"  className={Style.NFTDescription_box_share_box_social_txt}>
                   <MdReportProblem/> Report abouse 
                 </a>
-                <a href="#">
+                <a href="#"  className={Style.NFTDescription_box_share_box_social_txt}>
                   <MdOutlineDeleteSweep/> Delete item 
                 </a>
               </div>
@@ -155,7 +155,7 @@ const NFTDescription = () => {
         
         <div className={Style.NFTDescription_box_profile_biding}>
             <p>
-              <MdVerified/>
+              <MdTimer/> <span>Auction ending in:</span> 
             </p>
             <div className={Style.NFTDescription_box_profile_biding_box_timer}>
               <div className={Style.NFTDescription_box_profile_biding_box_timer_item}>
