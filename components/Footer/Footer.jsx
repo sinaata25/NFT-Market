@@ -17,19 +17,19 @@ const Footer = () => {
           <Image src={images.logo} alt="footer logo" height={100} width={100} />
           <p>The best digital marketplace for non-fungible tokens(NFTS)</p>
           <div className={Style.footer_social} >
-            <a href="#" >
+            <a href="#" className={Style.social} >
               <TiSocialFacebook/> 
             </a>
-            <a href="#" >
+            <a href="#" className={Style.social} >
               <TiSocialLinkedin/>
             </a>
-            <a href="#" >
+            <a href="#" className={Style.social} >
               <TiSocialTwitter/>
             </a>
-            <a href="#" >
+            <a href="#" className={Style.social} >
               <TiSocialYoutube/>
             </a>
-            <a href="#" >
+            <a href="#" className={Style.social} >
               <TiSocialInstagram/>
             </a>
           </div>

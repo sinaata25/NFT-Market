@@ -70,6 +70,7 @@ align-items: center;
 .navbar_container_right_notify{
     position: relative;
     cursor: pointer;
+    color: #4c5773;
 }
 .notify{
     font-size: 2rem;

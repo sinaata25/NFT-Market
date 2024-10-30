@@ -63,7 +63,10 @@
     padding:1rem 2rem;
 }
 
-
+.social{
+    text-decoration: none;
+    color:#4c5773;
+}
 
 /* //Media Query */
 /*tablet*/
