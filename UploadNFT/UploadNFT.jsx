@@ -114,29 +114,29 @@ const UploadNFT = () => {
               }
              </div>
           </div>
-          <div className={Style.Form_box_input_social}>
-            <div className={Style.Form_box_input}>
+          <div className={formStyle.Form_box_input_social}>
+            <div className={formStyle.Form_box_input}>
               <label htmlFor="Royalties" >Royalties</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+              <div className={formStyle.Form_box_input_box}>
+                <div className={formStyle.Form_box_input_box_icon}>
                   <FaPercent/>
                 </div>
                 <input type="text" placeholder="20%" onChange={(e)=>setRoyalties(e.target.value)} />
               </div>
             </div>
-            <div className={Style.Form_box_input}>
+            <div className={formStyle.Form_box_input}>
               <label htmlFor="size" >Size</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+              <div className={formStyle.Form_box_input_box}>
+                <div className={formStyle.Form_box_input_box_icon}>
                   <MdOutlineAttachFile/>
                 </div>
                 <input type="text" placeholder="80 MB" onChange={(e)=>setFileSize(e.target.value)} />
               </div>
             </div>
-            <div className={Style.Form_box_input}>
+            <div className={formStyle.Form_box_input}>
               <label htmlFor="properties" >Properties</label>
-              <div className={Style.Form_box_input_box}>
-                <div className={Style.Form_box_input_box_icon}>
+              <div className={formStyle.Form_box_input_box}>
+                <div className={formStyle.Form_box_input_box_icon}>
                   <AiTwotonePropertySafety/>
                 </div>
                 <input type="text" placeholder="properties" onChange={(e)=>setproperties(e.target.value)} />
@@ -145,6 +145,7 @@ const UploadNFT = () => {
           </div>
           <div className={Style.upload_box_btn}>
               <Button btnName="Upload" handleClick={()=>{}} classStyle={Style.upload_box_btn_style} />
+              <Button btnName="Preview" handleClick={()=>{}} classStyle={Style.upload_box_btn_style} />
           </div>
        </div>
     </div>
