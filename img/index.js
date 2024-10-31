@@ -43,8 +43,10 @@ import nft_image_3 from "./nft-image-3.png";
 import musiceWave from "./musicwave.png";
 import update from "./update.png";
 import nft_image_5 from "./nftimage5.jpg"
+import upload from "./upload.png"
 
 export default {
+  upload,
   collection,
   update,
   musiceWave,

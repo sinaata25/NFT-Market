@@ -22,7 +22,7 @@ const DropZone = ({properties,image,category, fileSize,royalties,description,web
       <div className={Style.DropZone_box} {...getRootProps()}>
         <input {...getInputProps()} />
         <div className={Style.DropZone_box_input} >
-          <p>Upload your Image</p>
+          <p>JPG,PNG,WEBM,MAX 100MB</p>
           <div className={Style.DropZone_box_input_img} >
             <Image src={image} alt="upload" width={100} height={100} className={Style.DropZone_box_input_img_img} />
           </div>

@@ -108,7 +108,7 @@ const UploadNFT = () => {
                           <TiTick/>
                         </div>
                       </div>  
-                      <p>Crypto legen - Professor</p>
+                      <p>Crypto legen - {el.category}</p>
                   </div>
                 ))
               }
