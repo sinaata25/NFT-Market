@@ -44,8 +44,13 @@ import musiceWave from "./musicwave.png";
 import update from "./update.png";
 import nft_image_5 from "./nftimage5.jpg"
 import upload from "./upload.png"
-
+import bitget from "./bitget.png"
+import metamask from "./metamask.png"
+import coinbase from "./coinbase.png"
 export default {
+  bitget,
+  metamask,
+  coinbase,
   upload,
   collection,
   update,
