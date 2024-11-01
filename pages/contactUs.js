@@ -31,19 +31,19 @@ const contactUs = () => {
                     </div>
                     <div className={Style.contactUs_box_box_left_item} >
                         <h3>🌐Socials</h3>
-                        <a href="#">
+                        <a href="#" className={Style.social_icon} >
                             <TiSocialFacebook/>
                         </a>
-                        <a href="#">
+                        <a href="#" className={Style.social_icon}>
                             <TiSocialLinkedin/>
                         </a>
-                        <a href="#">
+                        <a href="#" className={Style.social_icon}>
                             <TiSocialYoutube/>
                         </a>
-                        <a href="#">
+                        <a href="#" className={Style.social_icon}>
                             <TiSocialTwitter/>
                         </a>
-                        <a href="#">
+                        <a href="#" className={Style.social_icon}>
                             <TiSocialInstagram/>
                         </a>
                     </div>
@@ -51,7 +51,7 @@ const contactUs = () => {
                 <div className={Style.contactUs_box_box_right}>
                     <form>
                         <div className={formStyle.Form_box_input}>
-                            <label htmlFor="name" >Username</label>
+                            <label htmlFor="name" >Full name</label>
                             <input type="text" placeholder="Sina Ataei" className={formStyle.Form_box_input_userName} />
                         </div>
                         <div className={formStyle.Form_box_input}>
@@ -64,8 +64,8 @@ const contactUs = () => {
                                 </div>
                         </div>
                         <div className={formStyle.Form_box_input}>
-                            <label htmlFor="description">Description</label>
-                             <textarea name="" id="" cols="30" rows="6" placeholder="something about your self in few words" ></textarea>
+                            <label htmlFor="Message">Message</label>
+                             <textarea name="" id="" cols="30" rows="6" placeholder="something you want to send us" ></textarea>
                             </div>
                             <Button btnName="Send Message" handleClick={()=>{}} classStyle={Style.button} />
                     </form>
