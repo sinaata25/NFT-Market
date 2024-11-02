@@ -1,0 +1,42 @@
+.SubscribtionBox{
+    border: 1px solid #4c5773;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+.SubscribtionBox:hover{
+    box-shadow: 1rem 1rem 1rem #d3dae7,
+    -1rem -1rem 1rem #fff;
+}
+.SubscribtionBox_box_span{
+    font-size: 2rem;
+    font-weight: 900;
+}
+.SubscribtionBox_box_small{
+    position: absolute;
+    right: 3rem;
+    font-size: 1.2rem;
+    background-color:#4c5773 ;
+    color: #ecf0f3;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+.SubscribtionBox_box_price{
+    font-size: 3rem;
+    line-height: 0;
+    color: #3c455a;
+    font-weight: 900;
+}
+.SubscribtionBox_box_info{
+    margin: 4rem 0;
+}
+.SubscribtionBox_box_info_para{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 0;
+}

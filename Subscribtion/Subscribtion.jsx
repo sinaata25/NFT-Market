@@ -8,7 +8,7 @@ const Subscribtion = ({el,i}) => {
         <div className={Style.SubscribtionBox_box} >
           <span className={Style.SubscribtionBox_box_span}>{el.plan}</span>
           <small className={Style.SubscribtionBox_box_small}>{el.popular || ""}</small>
-          <p className={Style.SubscribtionBox_box_small_para}>{el.price}</p>
+          <p className={Style.SubscribtionBox_box_price}>{el.Price}</p>
           <div className={Style.SubscribtionBox_box_info}>
             {el.service.map((el,i)=>(
                <p className={Style.SubscribtionBox_box_info_para} key={i+1}>
