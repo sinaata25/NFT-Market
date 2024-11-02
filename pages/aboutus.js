@@ -14,7 +14,7 @@ const aboutus = () => {
             info:"Articles have been public around the world"
         },
         {
-            title:"100,000 milion",
+            title:"100,000",
             info:"Registered users account"
         },
         {
@@ -38,7 +38,7 @@ const aboutus = () => {
                     </p>
                 </div>
                 <div className={Style.aboutus_box_hero_right}>
-                    <Image src={images.hero} />
+                    <Image src={images.hero} className={Style.aboutus_box_hero_right_img} />
                 </div>
             </div>
             <div className={Style.aboutus_box_title}>
