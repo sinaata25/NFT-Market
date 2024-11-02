@@ -47,7 +47,9 @@ import upload from "./upload.png"
 import bitget from "./bitget.png"
 import metamask from "./metamask.png"
 import coinbase from "./coinbase.png"
+import sina from "./sina.JPG"
 export default {
+  sina,
   bitget,
   metamask,
   coinbase,
