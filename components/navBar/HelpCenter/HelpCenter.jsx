@@ -25,7 +25,7 @@ const HelpCenter = () => {
     },
     {
       name:"Subscription",
-      link:"subscription"
+      link:"subscribtion"
     },
   ]
 

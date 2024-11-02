@@ -10,21 +10,21 @@ const subscribtion = () => {
             plan:"Starter",
             Price:"$5/month",
             popular:"",
-            servive:["Automated Reporting","Faster Processing","customization"],
+            service:["Automated Reporting","Faster Processing","customization"],
             info:"something about paln"
         },
         {
             plan:"Basic",
             Price:"$15/month",
             popular:"Popular",
-            servive:["Everything in starter","100 builds","Progress reports","Premium Support"],
+            service:["Everything in starter","100 builds","Progress reports","Premium Support"],
             info:"something about paln"
         },
         {
             plan:"Plus",
             Price:"$25/month",
             popular:"",
-            servive:["Everything in Basic","unlimited builds","Asvanced Analytics","Company Evaluations"],
+            service:["Everything in Basic","unlimited builds","Advanced Analytics","Company Evaluations"],
             info:"something about paln"
         }
     ]

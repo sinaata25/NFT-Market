@@ -1,0 +1,26 @@
+.subscribtion{
+    width: 100%;
+    margin-block: 7rem;
+}
+.subscribtion_box{
+    width: 80%;
+    margin: 0 auto;
+}
+.subscribtion_box_info{
+    text-align: center;
+    line-height: 0;
+}
+.subscribtion_box_info h1{
+    font-size: 4rem;
+    line-height: .5;
+}
+.subscribtion_box_info p{
+    font-size: 1.6rem;
+    line-height: .5;
+}
+.subscribtion_box_box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+    margin-top: 7rem;
+}
