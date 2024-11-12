@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import Image from 'next/image'
 import { FaUserAlt,FaRegImage,FaUserEdit } from 'react-icons/fa'
 import { MdHelpCenter } from 'react-icons/md'
@@ -8,16 +8,19 @@ import { TbDownloadOff,TbDownload } from 'react-icons/tb'
 import Style from "./profile.module.css"
 import images from "../../../img"
 import Link from 'next/link'
+import { Web3Context } from '../../../web3/web3Context'
+
 
 
 const profile = () => {
+  const { currentAccount ,disconnectWallet} = useContext(Web3Context);
   return (
     <div className={Style.profile}>
       <div className={Style.profile_account}>
         <Image src={images.user1} alt="user profile" width={50} height={50} className={Style.profile_account_img} />
         <div className={Style.profile_account_info}>
           <p className={Style.profile_text} >Kasra</p>
-          <small className={Style.profile_text} >0X3241541454252354345...</small>
+          <small className={Style.profile_text} >{currentAccount.substring(0,6)}...{currentAccount.substring(35)}</small>
         </div>
       </div>
       <div className={Style.profile_menu}>
@@ -53,7 +56,7 @@ const profile = () => {
           <dev className={Style.profile_menu_one_item}>
             <TbDownload className={Style.profile_text} />
             <p>
-              <Link href={{pathname:'/disconnect'}} className={Style.profile_text} >Disconnect</Link>
+              <div  onClick={()=>disconnectWallet()} className={Style.profile_text} >Disconnect</div>
             </p>
           </dev>
         </dev>

@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { Web3Context } from '../../web3/web3Context'
 
 //import icon
 import { MdNotifications } from 'react-icons/md'
@@ -14,6 +14,8 @@ import {Button} from "../ComponentIndex"
 import images from "../../img"
 
 const NavBar = () => {
+  const { isConnected } = useContext(Web3Context);
+  const { checkWalletConnection } = useContext(Web3Context);
 //useState Components
 const [discover, setDiscover] = useState(false)
 const [help, setHelp] = useState(false)
@@ -110,12 +112,15 @@ const openSideBar = ()=>{
         <Button btnName="Create" handleClick={()=>{}} />
         </div>
         {/*----------User profile----------*/}
-        <div className={Style.navbar_container_right_profile_box}>
-          <div className={Style.navbar_container_right_profile}>
-            <Image src={images.user6} alt="Profile" width={40} height={40} onClick={()=>openProfile()} className={Style.navbar_container_right_profile} />
-            {profile && <Profile/>}
-          </div>
-        </div>
+        {
+          isConnected ? (  <div className={Style.navbar_container_right_profile_box}>
+            <div className={Style.navbar_container_right_profile}>
+              <Image src={images.user6} alt="Profile" width={40} height={40} onClick={()=>openProfile()} className={Style.navbar_container_right_profile} />
+              {profile && <Profile/>}
+            </div>
+          </div>):(<Button  btnName="Connect" handleClick={()=>checkWalletConnection()} />)
+        }
+
         {/*----------Menu Button----------*/}
         <div className={Style.navbar_container_right_menuBtn}>
           <CgMenuRight className={Style.menuIcon} onClick={()=>openSideBar()} />
