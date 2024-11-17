@@ -16,6 +16,7 @@ import images from "../../img"
 const NavBar = () => {
   const { isConnected } = useContext(Web3Context);
   const { checkWalletConnection } = useContext(Web3Context);
+  const {currentAccount} = useContext(Web3Context);
 //useState Components
 const [discover, setDiscover] = useState(false)
 const [help, setHelp] = useState(false)
@@ -109,7 +110,9 @@ const openSideBar = ()=>{
         </div>
         {/*----------Create Button Section----------*/}
         <div className={Style.navbar_container_right_button}>
-        <Button btnName="Create" handleClick={()=>{}} />
+          <a href="/uploadnft">
+            <Button btnName="Create" handleClick={()=>{}} />
+          </a>
         </div>
         {/*----------User profile----------*/}
         {
@@ -128,7 +131,7 @@ const openSideBar = ()=>{
       </div>
     </div>
     {/*----------------SideBar Content----------------*/}
-    {openSideMenu && (<div className={Style.sideBar} ><SideBar setOpenSideMenu={setOpenSideMenu}/></div>)}
+    {openSideMenu && (<div className={Style.sideBar} ><SideBar setOpenSideMenu={setOpenSideMenu} currentAccount={currentAccount} /></div>)}
 
 
   </div>

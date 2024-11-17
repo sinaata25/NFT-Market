@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Style from "../styles/uploadnft.module.css"
 import UploadNFT from "../UploadNFT/UploadNFT"
-
+import { Web3Context } from '../web3/web3Context'
 const uploadnft = () => {
+    const { uploadImageToIPFS, createNFT } = useContext(Web3Context);
   return (
     <div className={Style.uploadnft}>
         <div className={Style.uploadnft_box}>
@@ -19,7 +20,7 @@ const uploadnft = () => {
                 </p>
             </div>
             <div className={Style.uploadnft_box_form}>
-                <UploadNFT/>
+                <UploadNFT createNFT={createNFT} uploadImageToIPFS={uploadImageToIPFS} />
             </div>
         </div>
     </div>

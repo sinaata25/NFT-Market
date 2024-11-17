@@ -9,7 +9,7 @@ import Style from "./SideBar.module.css"
 import images from "../../../img"
 import Button from "../../Button/Button"
 
-const SideBar = ({setOpenSideMenu}) => {
+const SideBar = ({setOpenSideMenu,currentAccount}) => {
   const [openDiscover, setOpenDiscover] = useState(false)
   const [opneHelp, setOpneHelp] = useState(false)
   //discover  

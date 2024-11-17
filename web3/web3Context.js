@@ -5,18 +5,27 @@ import { unixfs } from '@helia/unixfs'
 import { CID } from 'multiformats/cid'
 import NFTMArketInstance from "../contracts/NFTMarketInstance"
 import { type } from 'os';
+import { PinataSDK } from "pinata-web3";
+const axios = require('axios');
+const FormData = require('form-data');
+
 
 
 export const Web3Context = createContext({});
 
+const pinApiKey="bc22f52eca6e04f50045"
+const pinApiSecret="7b6cfcc9738f5835fd7d5514b147019fe0c6d26737e08005b76f30b52c5c8c6a"
+const pinJWT="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJhNDY0YjE2Mi01OTA0LTQ0MmMtOTAxNS00ZmJiOTM5Zjc3NWYiLCJlbWFpbCI6InNpbmEuYXRhMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImJjMjJmNTJlY2E2ZTA0ZjUwMDQ1Iiwic2NvcGVkS2V5U2VjcmV0IjoiN2I2Y2ZjYzk3MzhmNTgzNWZkN2Q1NTE0YjE0NzAxOWZlMGM2ZDI2NzM3ZTA4MDA1Yjc2ZjMwYjUyYzVjOGM2YSIsImV4cCI6MTc2MzM3MjcxMn0.rDRJjpJi2emUgei2e5fkbyx8IzqFYum6GHx8M0ZlKnY"
 
+
+const pinata =new PinataSDK(pinApiKey, pinApiSecret);
 
 
 // Provider component
 export const Web3Provider = ({ children }) => { 
 
   const [NFTmarketContract, setNFTmarketContract] = useState()
-  const [currentAccount, setCurrentAccount] = useState("asd")
+  const [currentAccount, setCurrentAccount] = useState("")
   const [signer, setSigner] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -47,13 +56,28 @@ export const Web3Provider = ({ children }) => {
     console.log("Wallet disconnected");
   };
 
-  async function uploadImageToIPFS(imagePath) {
-    const helia = await createHelia();
-    const imageBuffer = fs.readFileSync(imagePath);
-    const file = await unixfs.add(helia, imageBuffer);
-    const fileCID = file.cid;
-    console.log(`File uploaded to IPFS with CID: ${fileCID}`);
-    return fileCID;
+  async function uploadImageToIPFS(file) {
+    try {
+    const form = new FormData();
+    form.append('file', file);
+    const request = await fetch(
+      "https://api.pinata.cloud/pinning/pinFileToIPFS",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${pinJWT}`,
+        },
+        body: form,
+      }
+    );
+    const response = await request.json();
+    const ipfsHash = response.IpfsHash;
+    const ipfsUrl = `https://ipfs.io/ipfs/${ipfsHash}`;
+    console.log(ipfsUrl);
+    return ipfsUrl;
+  }catch (error) {
+      console.log(error);    
+    }
   }
   
   /*const imagePath = 'path_to_your_image.jpg'; 
@@ -61,7 +85,7 @@ export const Web3Provider = ({ children }) => {
     console.log('Image uploaded successfully:', cid);
   });*/
 
-  const craeteNFT=async(formInput,fileUrl,router)=>{
+  const createNFT=async(formInput,fileUrl,router)=>{
 
       const {name,description,price}=formInput;
       if(!name || !description || !price || !fileUrl)
@@ -200,7 +224,7 @@ export const Web3Provider = ({ children }) => {
 
 
   return (
-    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet}}>
+    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT}}>
       <div>
         {children}
       </div>
