@@ -12,7 +12,7 @@ contract NFTMarketplace is ERC721,Ownable,ERC721URIStorage{
 mapping(uint256 => marketItem)private idMarketItem; 
 
 address payable contractOwner;
-uint256 listingPrice= 0.0025 ether;
+uint256 listingPrice= 0.000025 ether;
 uint256 private  tokenIds;
 uint256 private _itemSold;
 
@@ -41,7 +41,7 @@ function getListingPrice()public view returns(uint256){
     return listingPrice;
 }
 
-function createToken(string memory _tokenURI,uint256 price)public returns (uint256) {
+function createToken(string memory _tokenURI,uint256 price)public payable  returns (uint256) {
     tokenIds++;
     _mint(msg.sender, tokenIds);
     _setTokenURI(tokenIds, _tokenURI);

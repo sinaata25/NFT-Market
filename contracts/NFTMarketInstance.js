@@ -53,7 +53,7 @@ const nftMarketAbi=[
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "nonpayable",
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -784,9 +784,8 @@ const nftMarketAbi=[
 		"type": "function"
 	}
 ]
-
 const NFTMArketInstance = (provider) => {
-	return new ethers.Contract("0x2a157bc349bbd58e86d61c1474970cf2e478c68d",
+	return new ethers.Contract("0xb4b422A1D239E5bb57243D5C6aA187466497d029",
         nftMarketAbi,
 		provider);
 };

@@ -8,6 +8,7 @@ import { type } from 'os';
 import { PinataSDK } from "pinata-web3";
 const axios = require('axios');
 const FormData = require('form-data');
+import { useRouter } from 'next/router';
 
 
 
@@ -17,8 +18,10 @@ const pinApiKey="bc22f52eca6e04f50045"
 const pinApiSecret="7b6cfcc9738f5835fd7d5514b147019fe0c6d26737e08005b76f30b52c5c8c6a"
 const pinJWT="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJhNDY0YjE2Mi01OTA0LTQ0MmMtOTAxNS00ZmJiOTM5Zjc3NWYiLCJlbWFpbCI6InNpbmEuYXRhMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImJjMjJmNTJlY2E2ZTA0ZjUwMDQ1Iiwic2NvcGVkS2V5U2VjcmV0IjoiN2I2Y2ZjYzk3MzhmNTgzNWZkN2Q1NTE0YjE0NzAxOWZlMGM2ZDI2NzM3ZTA4MDA1Yjc2ZjMwYjUyYzVjOGM2YSIsImV4cCI6MTc2MzM3MjcxMn0.rDRJjpJi2emUgei2e5fkbyx8IzqFYum6GHx8M0ZlKnY"
 
-
-const pinata =new PinataSDK(pinApiKey, pinApiSecret);
+const pinata = new PinataSDK({
+  pinataJwt: pinJWT,
+  pinataGateway: "crimson-hidden-puma-892.mypinata.cloud",
+});
 
 
 // Provider component
@@ -30,16 +33,18 @@ export const Web3Provider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isConnected, setIsConnected] = useState(false);
+  const [imageUrl,setImageUrl] = useState(null)
 
+  const router= useRouter();
 
   const checkWalletConnection = async () => {
     if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       try {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const accounts = await provider.send('eth_requestAccounts', []);
-        setSigner(provider.getSigner());
+        setSigner(await provider.getSigner());
         setCurrentAccount(accounts[0]);
-        setNFTmarketContract(NFTMArketInstance(provider));
+        setNFTmarketContract(NFTMArketInstance(provider));  
         setIsConnected(true);
       } catch (err) {
         console.log(err.message);
@@ -73,6 +78,7 @@ export const Web3Provider = ({ children }) => {
     const response = await request.json();
     const ipfsHash = response.IpfsHash;
     const ipfsUrl = `https://ipfs.io/ipfs/${ipfsHash}`;
+    setImageUrl(ipfsUrl);
     console.log(ipfsUrl);
     return ipfsUrl;
   }catch (error) {
@@ -85,20 +91,23 @@ export const Web3Provider = ({ children }) => {
     console.log('Image uploaded successfully:', cid);
   });*/
 
-  const createNFT=async(formInput,fileUrl,router)=>{
-
-      const {name,description,price}=formInput;
-      if(!name || !description || !price || !fileUrl)
-        return console.log("data is missing");
-
-      const data=JSON.stringify({name,description,image:fileUrl});  
-      try {
-        const added=await client.add(data)
-        const url=`http://ipfs.infura.io/ipfs/${added.path}`
-        //await createSale(url,price);
-      } catch (error) {
-        console.log(error);
-      }
+  const createNFT=async(itemName,price,description,image,router)=>{
+    const name = itemName;
+    if (!name || !description || !price || !image) {
+      return console.log("data is missing");
+    }
+    try {
+      const upload = await pinata.upload.json({
+        name,
+        description,
+        image
+      });
+      const url = `https://crimson-hidden-puma-892.mypinata.cloud/ipfs/${upload.IpfsHash}`;
+      console.log(url)
+      await createSale(url,price);
+    } catch (error) {
+      console.log(error);
+    }
   }
   const getlistprice = async () => {
     checkWalletConnection();
@@ -115,18 +124,25 @@ export const Web3Provider = ({ children }) => {
     }
   };
   
-  const createSale=async(url,formInpurPrice,isReselling,id)=>{
-    checkWalletConnection();
+  const createSale = async (url, formInputPrice, isReselling = false, id) => {
     try {
-      const price=ethers.utils.parseUints(formInpurPrice,"ether");
-      const listPrice=getlistprice();
-      const transaction=!isReselling ? await NFTmarketContract.createToken(url,price,{value:listPrice.toString()}) : await NFTmarketContract.reSellToken(url,price,{value:listPrice.toString()});
+      if (!NFTmarketContract) {
+        console.log("NFT market contract is not initialized");
+        return;
+      }
+      const contractWithSigner = NFTmarketContract.connect(signer);
+      const price = ethers.parseUnits(formInputPrice, "ether");
+      const listPrice = await getlistprice();
+      const transaction = !isReselling
+        ? await contractWithSigner.createToken(url, price, { value: listPrice.toString() })
+        : await contractWithSigner.reSellToken(id, price, { value: listPrice.toString() });
       await transaction.wait();
-
+      console.log("Transaction successful!");
+      router.push('/searchPage')
     } catch (error) {
-      console.log(error);
+      console.error("Error in createSale:", error.message || error);
     }
-  }
+  };
 
   const fetchNFTs = async () => {
     checkWalletConnection();
@@ -216,7 +232,7 @@ export const Web3Provider = ({ children }) => {
   
 
   useEffect(() => {
-   // checkWalletConnection();
+    checkWalletConnection();
   }, [currentAccount]);
 
 
