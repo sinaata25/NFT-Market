@@ -6,7 +6,7 @@ import { TiArrowSortedDown,TiArrowSortedUp } from 'react-icons/ti'
 import Style from "./NFTDetailsImg.module.css"
 import images from "../../img"
 
-const NFTDetailsImg = () => {
+const NFTDetailsImg = ({nft}) => {
   const [description, setDescription] = useState(true);
   const [details, setDetails] = useState(true);
   const [like, setLike] = useState(false);
@@ -53,7 +53,9 @@ const NFTDetailsImg = () => {
           </div>
           <div className={Style.NFTDetailsImg_box_NFT_img}>
               <Image
-              src={images.nft_image_1}
+              src={nft.image}
+              width={600}
+              height={650}
               className={Style.NFTDetailsImg_box_NFT_img_img}
               alt="NFT image"
               objectFit="cover"
@@ -68,8 +70,7 @@ const NFTDetailsImg = () => {
           description && (
             <div className={Style.NFTDetailsImg_box_description_box}>
                 <p>
-                  Tattoed kitty Gang is a collection of 666 badass kitty gangestres,
-                  with symbol of tatoos living in the proud kitty gang metavers.
+                {nft.description}
                 </p>
             </div>
           )
@@ -83,11 +84,11 @@ const NFTDetailsImg = () => {
           <p>
             <small>Contract Address</small>
             <br></br>
-            0x7Ac23CC637833BdBc311c3ea9b065E240872193b
+            {nft.seller}
           </p>
           <p>
             <small>Token Id</small>
-            1000261615
+            &nbsp;  &nbsp; {nft.tokenId}
           </p>
         </div>)}
 

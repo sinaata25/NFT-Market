@@ -151,16 +151,22 @@ export const Web3Provider = ({ children }) => {
         console.log("NFT market contract is not initialized");
         return;
       }
-      
-      const items = await NFTmarketContract.fetchMarketItem();
+      const contractWithSigner =await NFTmarketContract.connect(signer);
+      const items = await contractWithSigner.fetchMarketItem();
       
       const fetchedNFTs = await Promise.all(items.map(async item => {
-        const tokenURI = await NFTmarketContract.tokenURI(item.tokenId);
+        const tokenURI = await contractWithSigner.tokenURI(item.tokenId);
         const metadata = await fetch(tokenURI).then(res => res.json());
-  
+        try {
+        var pprice=ethers.parseUnits(item.price.toString(), "ether")
+        pprice=ethers.formatEther(pprice)/(10**18);
+        } catch (error) {
+          console.log(error)   
+        }
+
         return {
-          price: ethers.utils.formatUnits(item.price.toString(), "ether"),
-          tokenId: item.tokenId.toNumber(),
+          price:pprice,
+          tokenId: Number(item.tokenId),
           seller: item.seller,
           owner: item.owner,
           image: metadata.image,
@@ -168,8 +174,6 @@ export const Web3Provider = ({ children }) => {
           description: metadata.description,
         };
       }));
-  
-      console.log("Fetched NFTs:", fetchedNFTs);
       return fetchedNFTs;
   
     } catch (error) {
@@ -233,6 +237,7 @@ export const Web3Provider = ({ children }) => {
 
   useEffect(() => {
     checkWalletConnection();
+    fetchNFTs();
   }, [currentAccount]);
 
 
@@ -240,7 +245,7 @@ export const Web3Provider = ({ children }) => {
 
 
   return (
-    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT}}>
+    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT,fetchNFTs}}>
       <div>
         {children}
       </div>

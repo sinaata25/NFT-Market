@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Image from 'next/image'
 import { MdVerified,MdCloudUpload,MdTimer,MdReportProblem,MdOutlineDeleteSweep } from 'react-icons/md'
 import { BsThreeDots } from 'react-icons/bs'
@@ -9,8 +9,10 @@ import Style from "./NFTDescription.module.css"
 import images from "../../img"
 import Button from "../../components/Button/Button"
 import NFTTabs from "../NFTTabs/NTFTabs"
+import { ethers } from 'ethers';
 
-const NFTDescription = () => {
+const NFTDescription = ({nft}) => {
+
 
   const [social,setSocial]=useState(false);
   const [NFTMenu, setNFTMenu] = useState(false);
@@ -132,7 +134,7 @@ const NFTDescription = () => {
           </div>
         </div>
         <div className={Style.NFTDescription_box_profile}>
-          <h1>Bearx #2131</h1>
+          <h1>{nft.name} #{nft.tokenId}</h1>
           <div className={Style.NFTDescription_box_profile_box}>
               <div className={Style.NFTDescription_box_profile_box_left}>
                   <Image src={images.user5} alt="profile" className={Style.NFTDescription_box_profile_box_left_img} />
@@ -180,7 +182,7 @@ const NFTDescription = () => {
               <div className={Style.NFTDescription_box_profile_biding_box_price_bid}>
                 <small>Current Bid</small>
                 <p>
-                  1.000 ETH <span>(≈ $3,221.22)</span>
+                {nft.price} ETH <span>(≈ $3,221.22)</span>
                 </p>
               </div>
               <span>[96 in stock]</span>

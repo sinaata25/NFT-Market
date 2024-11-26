@@ -11,6 +11,10 @@
     gap: 1rem;
     margin-bottom: 8rem;
 }
+.link{
+    color: #4c5773;
+    text-decoration: none;
+}
 .NftCardTwo_box{
     display: grid;
     background-color: #5c66801d;
