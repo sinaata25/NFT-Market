@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 
 
 
+
 export const Web3Context = createContext({});
 
 const pinApiKey="bc22f52eca6e04f50045"
@@ -183,24 +184,30 @@ export const Web3Provider = ({ children }) => {
 
   const fetchMyNFTsOrListedNFTs = async (type) => {
     checkWalletConnection();
+    if (!NFTmarketContract) {
+      console.log("NFT market contract is not initialized");
+      return;
+    }
     try {
-      if (!NFTmarketContract) {
-        console.log("NFT market contract is not initialized");
-        return;
-      }
-  
+      const contractWithSigner =await NFTmarketContract.connect(signer);
       const data = type === "fetchItemsListed"
-        ? await NFTmarketContract.fetchItemsListed()
-        : await NFTmarketContract.fetchMyNft();
+        ? await contractWithSigner.fetchItemsListed()
+        : await contractWithSigner.fetchMyNft();
   
 
       const items = await Promise.all(data.map(async item => {
-        const tokenURI = await NFTmarketContract.tokenURI(item.tokenId);
+        const tokenURI = await contractWithSigner.tokenURI(item.tokenId);
         const metadata = await fetch(tokenURI).then(res => res.json());
-  
+        //ethers.utils.formatUnits(item.price.toString(), "ether")
+        try {
+          var pprice=ethers.parseUnits(item.price.toString(), "ether")
+          pprice=ethers.formatEther(pprice)/(10**18);
+          } catch (error) {
+            console.log(error)   
+          }
         return {
-          price: ethers.utils.formatUnits(item.price.toString(), "ether"),
-          tokenId: item.tokenId.toNumber(),
+          price: pprice,
+          tokenId: Number(item.tokenId),
           seller: item.seller,
           owner: item.owner,
           image: metadata.image,
@@ -208,8 +215,6 @@ export const Web3Provider = ({ children }) => {
           description: metadata.description,
         };
       }));
-  
-      console.log("Fetched NFTs:", items);
       return items;
   
     } catch (error) {
@@ -225,10 +230,13 @@ export const Web3Provider = ({ children }) => {
         console.log("NFT market contract is not initialized");
         return;
       }
-      const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
-      const transaction = await NFTmarketContract.createMarketSell(nft.tokenId, { value: price });
+      const contractWithSigner = NFTmarketContract.connect(signer);
+      const price=nft.price*(10**18);
+      console.log(price)
+      const transaction = await contractWithSigner.createMarketSell(nft.tokenId, { value: price });
       await transaction.wait();
       console.log("NFT purchased successfully!");
+      router.push("/author")
     } catch (error) {
       console.log("Error buying NFT:", error);
     }
@@ -245,7 +253,7 @@ export const Web3Provider = ({ children }) => {
 
 
   return (
-    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT,fetchNFTs}}>
+    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT,fetchNFTs,buyNFT,fetchMyNFTsOrListedNFTs}}>
       <div>
         {children}
       </div>

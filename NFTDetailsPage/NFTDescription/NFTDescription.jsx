@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState,useContext} from 'react'
 import Image from 'next/image'
 import { MdVerified,MdCloudUpload,MdTimer,MdReportProblem,MdOutlineDeleteSweep } from 'react-icons/md'
 import { BsThreeDots } from 'react-icons/bs'
@@ -9,11 +9,11 @@ import Style from "./NFTDescription.module.css"
 import images from "../../img"
 import Button from "../../components/Button/Button"
 import NFTTabs from "../NFTTabs/NTFTabs"
-import { ethers } from 'ethers';
-
+import Link from 'next/link'
+import { Web3Context } from '../../web3/web3Context'
 const NFTDescription = ({nft}) => {
 
-
+  const {currentAccount,buyNFT}=useContext(Web3Context);
   const [social,setSocial]=useState(false);
   const [NFTMenu, setNFTMenu] = useState(false);
   const [history, setHistory] = useState(true)
@@ -140,9 +140,11 @@ const NFTDescription = ({nft}) => {
                   <Image src={images.user5} alt="profile" className={Style.NFTDescription_box_profile_box_left_img} />
                   <div className={Style.NFTDescription_box_profile_box_left_info}>
                     <small>Creator</small> <br/>
+                    <Link href={{pathname:"/author",query:`${nft.seller}`}} className={Style.link}>
                     <span>
                       Karila Costa <MdVerified/>
                     </span>
+                    </Link>
                   </div>
               </div>
               <div className={Style.NFTDescription_box_profile_box_right}>
@@ -188,18 +190,34 @@ const NFTDescription = ({nft}) => {
               <span>[96 in stock]</span>
             </div>
             <div className={Style.NFTDescription_box_profile_biding_box_button}>
+              {currentAccount==nft.seller.toLowerCase()?(
+              <div>
+                <Button
+              icon= {<FaWallet/>}
+              btnName="List on Market"
+              handleClick={()=>{}}
+              classStyle={Style.button}
+             />
+              </div>):
+              (
+              <div className={Style.NFTDescription_box_profile_biding_box_button}>
               <Button
-               icon= {<FaWallet/>}
-               btnName="Place a bid"
-               handleClick={()=>{}}
-               classStyle={Style.button}
-              />
+                icon= {<FaWallet/>}
+                btnName="Buy NFT"
+                handleClick={()=>buyNFT(nft)}
+                classStyle={Style.button}
+               />
               <Button
                icon= {<FaPercentage/>}
                btnName="Make Offer"
                handleClick={()=>{}}
                classStyle={Style.button}
               />
+             </div>
+             
+              )}
+
+
             </div>
             <div className={Style.NFTDescription_box_profile_biding_box_tabs}>
                 <button onClick={(e)=>openTabs(e)} >Bid History</button>

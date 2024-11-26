@@ -19,6 +19,10 @@
 .NFTDescription_box_share_box_icon{
     cursor: pointer;
 }
+.link{
+    text-decoration: none;
+    color: #4c5773;
+}
 .NFTDescription_box_share_box_social{
     position: absolute;
     top: 5rem;

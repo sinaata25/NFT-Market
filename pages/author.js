@@ -1,11 +1,31 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Style from "../styles/author.module.css"
 import {Banners,NftCardTwo} from "../collectionPage/collectionIndex"
 import { Brand,Title } from '../components/ComponentIndex'
 import images from "../img"
 import { AuthorProfileCard,AuthorTabs,AuthorNFTCardBox } from '../authorPage/componentIndex'
 import FollowerTabCard from '../components/FollowerTab/FollowerTabCard/FollowerTabCard'
+import { Web3Context } from '../web3/web3Context'
 const author = () => {
+
+  const {fetchMyNFTsOrListedNFTs,currentAccount} =useContext(Web3Context);
+
+  const [nft, setNft] = useState([])
+  const [myNFTS, setMyNFTS] = useState([])
+
+  useEffect(() => {
+    fetchMyNFTsOrListedNFTs("fetchItemsListed").then((items)=>{
+      setNft(items)
+    })
+  })
+  
+  useEffect(() => {
+    fetchMyNFTsOrListedNFTs("fetchMyNFTS").then((items)=>{
+      setMyNFTS(items)
+    })
+  })
+  
+
   const followerArray=[
     {
         background:images.creatorbackground10,
@@ -42,7 +62,8 @@ const author = () => {
         <Banners bannerImage={images.creatorbackground8} />
         <AuthorProfileCard/>
         <AuthorTabs setCollectiables={setCollectiables} setCreated={setCreated} setLike={setLike} setFollower={setFollower} setFollowing={setFollowing} />
-        <AuthorNFTCardBox collectiables={collectiables} created={created} like={like} follower={follower} following={following} />
+        {nft && myNFTS ? (<AuthorNFTCardBox collectiables={collectiables} created={created} like={like} follower={follower} following={following} nfts={nft} myNFTS={myNFTS} />):(<div>Loading...</div>)}
+        
         <Title heading="popular creators" paragraph="Click on music icon and enjoy NFT music or audio" />
         <div className={Style.author_box}>
           {followerArray.map((el,i)=>(

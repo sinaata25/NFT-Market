@@ -4,7 +4,7 @@ import images from "../../img"
 import {NftCardTwo} from "../../collectionPage/collectionIndex"
 import FollowerTabCard from '../../components/FollowerTab/FollowerTabCard/FollowerTabCard'
 
-const AuthorNFTCardBox = ({collectiables,created,like,follower,following}) => {
+const AuthorNFTCardBox = ({collectiables,created,like,follower,following,myNFTS,nfts}) => {
 
     const collectiablesArray=[
         images.nft_image_1,
@@ -76,8 +76,8 @@ const AuthorNFTCardBox = ({collectiables,created,like,follower,following}) => {
 
   return (
     <div className={Style.AuthorNFTCardBox}>
-        {collectiables && <NftCardTwo NFTData={collectiablesArray} />}
-        {created && <NftCardTwo NFTData={collectiablesArray} />}
+        {collectiables && <NftCardTwo NFTData={nfts} />}
+        {created && <NftCardTwo NFTData={myNFTS} />}
         {like && <NftCardTwo NFTData={createdArray} />}
         {follower && (
             <div className={Style.AuthorNFTCardBox_box} >
