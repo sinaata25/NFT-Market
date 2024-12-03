@@ -173,6 +173,7 @@ export const Web3Provider = ({ children }) => {
           image: metadata.image,
           name: metadata.name,
           description: metadata.description,
+          URI:tokenURI
         };
       }));
       return fetchedNFTs;
@@ -253,7 +254,7 @@ export const Web3Provider = ({ children }) => {
 
 
   return (
-    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT,fetchNFTs,buyNFT,fetchMyNFTsOrListedNFTs}}>
+    <Web3Context.Provider value={{currentAccount,isConnected,checkWalletConnection,disconnectWallet,uploadImageToIPFS,createNFT,fetchNFTs,buyNFT,fetchMyNFTsOrListedNFTs,createSale}}>
       <div>
         {children}
       </div>

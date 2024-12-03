@@ -2,6 +2,9 @@ import React from 'react'
 import {NFTDescription,NFTDetailsImg,NFTTabs} from "./NFTDetailsIndex"
 import Style from "./NFTDetailsPage.module.css"
 
+
+
+
 const NFTDetailsPage = ({nft}) => {
   return (
     <div  className={Style.NFTDetailsPage}>

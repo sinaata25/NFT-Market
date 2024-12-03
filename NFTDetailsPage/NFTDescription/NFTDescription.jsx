@@ -9,6 +9,7 @@ import Style from "./NFTDescription.module.css"
 import images from "../../img"
 import Button from "../../components/Button/Button"
 import NFTTabs from "../NFTTabs/NTFTabs"
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Web3Context } from '../../web3/web3Context'
 const NFTDescription = ({nft}) => {
@@ -19,7 +20,7 @@ const NFTDescription = ({nft}) => {
   const [history, setHistory] = useState(true)
   const [provanance, setProvanance] = useState(false)
   const [owner, setOwner] = useState(false)
-
+  const router=useRouter();
   const historyArray=[
     images.user1,
     images.user2,
@@ -198,7 +199,7 @@ const NFTDescription = ({nft}) => {
                 <Button
               icon= {<FaWallet/>}
               btnName="List on Market"
-              handleClick={()=>{}}
+              handleClick={()=>router.push(`/reSellToken?id=${nft.tokenId}&tokenURI=${nft.URI}`)}
               classStyle={Style.button}
              />
               </div>):
