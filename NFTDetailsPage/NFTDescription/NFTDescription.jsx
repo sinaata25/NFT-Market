@@ -140,7 +140,10 @@ const NFTDescription = ({nft}) => {
                   <Image src={images.user5} alt="profile" className={Style.NFTDescription_box_profile_box_left_img} />
                   <div className={Style.NFTDescription_box_profile_box_left_info}>
                     <small>Creator</small> <br/>
-                    <Link href={{pathname:"/author",query:`${nft.seller}`}} className={Style.link}>
+                    <Link href={{
+    pathname: "/author",
+    query: { seller: nft.seller } 
+  }}  className={Style.link}>
                     <span>
                       Karila Costa <MdVerified/>
                     </span>

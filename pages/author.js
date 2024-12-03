@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react'
 import Style from "../styles/author.module.css"
+import { useRouter } from 'next/router'
 import {Banners,NftCardTwo} from "../collectionPage/collectionIndex"
 import { Brand,Title } from '../components/ComponentIndex'
 import images from "../img"
@@ -7,7 +8,8 @@ import { AuthorProfileCard,AuthorTabs,AuthorNFTCardBox } from '../authorPage/com
 import FollowerTabCard from '../components/FollowerTab/FollowerTabCard/FollowerTabCard'
 import { Web3Context } from '../web3/web3Context'
 const author = () => {
-
+  const router = useRouter();
+  const { seller } = router.query;
   const {fetchMyNFTsOrListedNFTs,currentAccount} =useContext(Web3Context);
 
   const [nft, setNft] = useState([])
@@ -60,7 +62,7 @@ const author = () => {
   return (
     <div className={Style.author}>
         <Banners bannerImage={images.creatorbackground8} />
-        <AuthorProfileCard/>
+        <AuthorProfileCard currentAccount={seller} />
         <AuthorTabs setCollectiables={setCollectiables} setCreated={setCreated} setLike={setLike} setFollower={setFollower} setFollowing={setFollowing} />
         {nft && myNFTS ? (<AuthorNFTCardBox collectiables={collectiables} created={created} like={like} follower={follower} following={following} nfts={nft} myNFTS={myNFTS} />):(<div>Loading...</div>)}
         
