@@ -17,7 +17,7 @@ const author = () => {
   useEffect(() => {
     fetchMyNFTsOrListedNFTs("fetchItemsListed", seller).then((items) => {
       if (Array.isArray(items)) {
-        const filteredItems = items.filter(item => item.sold !== true); // فقط آیتم‌هایی که sold برابر false است.
+        const filteredItems = items.filter(item => item.sold !== true); 
         setNft(filteredItems);
       } else {
         console.error("The fetched items are not an array:", items);
