@@ -106,12 +106,12 @@ return items;
 
 
 
-function fetchMyNft()public view returns(marketItem[] memory){
+function fetchMyNft(address _address)public view returns(marketItem[] memory){
 
     uint256 itemCount=0;
     uint256 currentIndex=0;
     for(uint256 i=0;i<tokenIds;i++){
-        if(idMarketItem[i+1].owner==msg.sender){
+        if(idMarketItem[i+1].owner==_address){
             itemCount++;
         } 
     }
@@ -119,7 +119,7 @@ function fetchMyNft()public view returns(marketItem[] memory){
     marketItem[] memory items=new marketItem[](itemCount);
 
     for(uint256 i=0;i<tokenIds;i++){
-         if(idMarketItem[i+1].owner==msg.sender){
+         if(idMarketItem[i+1].owner==_address){
             items[currentIndex]=idMarketItem[i+1];
             currentIndex++;
         }
@@ -130,11 +130,11 @@ function fetchMyNft()public view returns(marketItem[] memory){
 
 
 //user item listed
-function fetchItemsListed()public view returns(marketItem[] memory){
+function fetchItemsListed(address _address)public view returns(marketItem[] memory){
     uint256 itemCount=0;
     uint256 currentIndex=0;
     for(uint256 i=0;i<tokenIds;i++){
-        if(idMarketItem[i+1].seller==msg.sender){
+        if(idMarketItem[i+1].seller==_address){
             itemCount++;
         }
     }
@@ -142,7 +142,7 @@ function fetchItemsListed()public view returns(marketItem[] memory){
     marketItem[] memory items=new marketItem[](itemCount);
 
     for(uint256 i=0;i<tokenIds;i++){
-         if(idMarketItem[i+1].seller==msg.sender){
+         if(idMarketItem[i+1].seller==_address){
             items[currentIndex]=idMarketItem[i+1];
             currentIndex++;
         }

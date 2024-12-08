@@ -183,7 +183,7 @@ export const Web3Provider = ({ children }) => {
     }
   };
 
-  const fetchMyNFTsOrListedNFTs = async (type) => {
+  const fetchMyNFTsOrListedNFTs = async (type,address) => {
     checkWalletConnection();
     if (!NFTmarketContract) {
       console.log("NFT market contract is not initialized");
@@ -192,8 +192,8 @@ export const Web3Provider = ({ children }) => {
     try {
       const contractWithSigner =await NFTmarketContract.connect(signer);
       const data = type === "fetchItemsListed"
-        ? await contractWithSigner.fetchItemsListed()
-        : await contractWithSigner.fetchMyNft();
+        ? await contractWithSigner.fetchItemsListed(address)
+        : await contractWithSigner.fetchMyNft(address);
   
 
       const items = await Promise.all(data.map(async item => {
@@ -214,6 +214,7 @@ export const Web3Provider = ({ children }) => {
           image: metadata.image,
           name: metadata.name,
           description: metadata.description,
+          sold:item.sold
         };
       }));
       return items;

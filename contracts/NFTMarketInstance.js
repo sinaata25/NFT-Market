@@ -512,7 +512,13 @@ const nftMarketAbi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
 		"name": "fetchItemsListed",
 		"outputs": [
 			{
@@ -592,7 +598,13 @@ const nftMarketAbi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
 		"name": "fetchMyNft",
 		"outputs": [
 			{
@@ -785,7 +797,7 @@ const nftMarketAbi=[
 	}
 ]
 const NFTMArketInstance = (provider) => {
-	return new ethers.Contract("0xb4b422A1D239E5bb57243D5C6aA187466497d029",
+	return new ethers.Contract("0x1aB011120cB0521c63D23Fe5106D26b4d05d8EC6",
         nftMarketAbi,
 		provider);
 };

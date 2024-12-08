@@ -25,14 +25,14 @@ const AuthorTabs = ({setCollectiables,setCreated,setLike,setFollower,setFollowin
 
 const openTab=(e)=>{
   const btnText=e.target.innerText;
-  if(btnText == "Collectiables"){
+  if(btnText == "Listed"){
     setCollectiables(true);
     setCreated(false);
     setFollower(false);
     setFollowing(false);
     setLike(false);
     setActiveBtn(1);
-  }else if(btnText == "Created"){
+  }else if(btnText == "Owned"){
     setCollectiables(false);
     setCreated(true);
     setFollower(false);
@@ -68,8 +68,8 @@ const openTab=(e)=>{
       <div className={Style.AuthorTabs_box}>
         <div className={Style.AuthorTabs_box_left}>
           <div className={Style.AuthorTabs_box_left_btn}>
-            <button className={`${activeBtn==1 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Collectiables{""}</button>
-            <button className={`${activeBtn==2 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Created{""}</button>
+            <button className={`${activeBtn==1 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Listed{""}</button>
+            <button className={`${activeBtn==2 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Owned{""}</button>
             <button className={`${activeBtn==3 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Liked{""}</button>
             <button className={`${activeBtn==4 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Following{""}</button>
             <button className={`${activeBtn==5 ? Style.active : ""}`} onClick={(e)=>openTab(e)}>Followers{""}</button>

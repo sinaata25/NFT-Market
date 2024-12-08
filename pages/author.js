@@ -10,23 +10,33 @@ import { Web3Context } from '../web3/web3Context'
 const author = () => {
   const router = useRouter();
   const { seller } = router.query;
-  const {fetchMyNFTsOrListedNFTs,currentAccount} =useContext(Web3Context);
-
+  const {fetchMyNFTsOrListedNFTs,currentAccount,fetchNFTs} =useContext(Web3Context);
   const [nft, setNft] = useState([])
   const [myNFTS, setMyNFTS] = useState([])
 
   useEffect(() => {
-    fetchMyNFTsOrListedNFTs("fetchItemsListed").then((items)=>{
-      setNft(items)
-    })
-  })
+    fetchMyNFTsOrListedNFTs("fetchItemsListed", seller).then((items) => {
+      if (Array.isArray(items)) {
+        const filteredItems = items.filter(item => item.sold !== true); // فقط آیتم‌هایی که sold برابر false است.
+        setNft(filteredItems);
+      } else {
+        console.error("The fetched items are not an array:", items);
+      }
+    }).catch((error) => {
+      console.error("Error fetching items:", error);
+    });
+  });
   
   useEffect(() => {
-    fetchMyNFTsOrListedNFTs("fetchMyNFTS").then((items)=>{
+    fetchMyNFTsOrListedNFTs("fetchMyNFTS",seller).then((items)=>{
       setMyNFTS(items)
     })
   })
   
+ 
+
+
+
 
   const followerArray=[
     {
