@@ -13,7 +13,7 @@ const reSellToken = () => {
   const [image, setImage] = useState("")
   const router=useRouter();
   const {id,tokenURI}=router.query;
- 
+  const [reSellPrice, setReSellPrice] = useState("");
 
   const fetchNFT=async()=>{
     if(!tokenURI)return;
@@ -23,8 +23,15 @@ const reSellToken = () => {
   }
 
   const reSell=async()=>{
-    await createSale(tokenURI,price,true,id)
+    console.log(tokenURI)
+    console.log(reSellPrice)
+    await createSale(tokenURI,reSellPrice,true,id) ///////fix this 
+    router.push("/author")
   }
+
+  const handleInputChange = (event) => {
+    setReSellPrice(event.target.value);
+  };
 
 
   useEffect(() => {
@@ -38,7 +45,7 @@ const reSellToken = () => {
         <h1>ReSell your token,Set price</h1>
           <div className={formStyle.Form_box_input}>
             <label htmlFor="name" >Price</label>
-            <input type="number" min={1} placeholder="reSell Price" className={formStyle.Form_box_input_userName} />
+            <input type="number" min={1} placeholder="reSell Price" value={reSellPrice} className={formStyle.Form_box_input_userName} onChange={handleInputChange} />
           </div>
           <div className={Style.reSellToken_box_image}>
             {image && (
@@ -46,7 +53,7 @@ const reSellToken = () => {
             )}
           </div>
           <div className={Style.reSellToken_box_btn}>
-              <Button btnName="Resell NFT" handleClick={reSell} />
+              <Button btnName="Resell NFT" handleClick={()=>reSell()} />
           </div>
       </div>
     </div>

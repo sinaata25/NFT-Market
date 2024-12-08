@@ -20,7 +20,7 @@ const SideBar = ({setOpenSideMenu,currentAccount}) => {
     },
     {
       name:"Search",
-      link:"search"
+      link:"searchPage"
     },
     {
       name:"Author Profile",

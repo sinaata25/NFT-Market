@@ -125,7 +125,7 @@ export const Web3Provider = ({ children }) => {
     }
   };
   
-  const createSale = async (url, formInputPrice, isReselling = false, id) => {
+  const createSale = async (url, formInputPrice, isReselling , id) => {
     try {
       if (!NFTmarketContract) {
         console.log("NFT market contract is not initialized");
