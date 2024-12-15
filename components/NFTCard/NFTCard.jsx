@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Style from "./NFTCard.module.css"
 import images from "../../img"
 
-const NFTCard = () => {
+const NFTCard = ({NFTData}) => {
     const featureArray=[1,2,3,4,5,6,7,8,9];
     const[like,setLike]=useState(true);
     const likeNft=()=>{
@@ -20,10 +20,10 @@ const NFTCard = () => {
 
   return (
     <div className={Style.NFTCard} >
-            {featureArray.map((el,i)=>(
+            {NFTData.map((el,i)=>(
                 <div className={Style.NFTCard_box} key={i+1}>
                     <div className={Style.NFTCard_box_img} >
-                        <Image src={images.nft_image_1} alt="NFT images"  className={Style.NFTCard_box_img_img} />
+                        <Image src={el.image} alt="NFT images"   className={Style.NFTCard_box_img_img} width={600} height={600}/>
                     </div>
                     <div className={Style.NFTCard_box_update} >
                        <div className={Style.NFTCard_box_update_left} >
@@ -41,7 +41,7 @@ const NFTCard = () => {
                     <div className={Style.NFTCard_box_update_details}>
                          <div className={Style.NFTCard_box_update_details_price}>
                              <div className={Style.NFTCard_box_update_details_price_box}>
-                                <h4>Clone #12342</h4>
+                                <h4>{el.name} #{el.tokenId}</h4>
                                 <div className={Style.NFTCard_box_update_details_price_box_box} >
                                   <div className={Style.NFTCard_box_update_details_price_box_bid} >
                                     <small>Current Bid</small>

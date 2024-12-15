@@ -5,6 +5,7 @@ import { SearchBar } from "../SearchPage/searchBarIndex";
 import NftCardTwo from "../collectionPage/NftCardTwo/NftCardTwo";
 import images from "../img";
 import { Web3Context } from '../web3/web3Context';
+import Loader from "../components/Loader/Loader"
 
 const searchPage = () => {
   const { fetchNFTs } = useContext(Web3Context);
@@ -65,8 +66,8 @@ const searchPage = () => {
     <div className={Style.searchPage}>
       <SearchBar onHandleSearch={onHandleSearch} onClearSearch={onClearSearch} />
       <Filter />
-      {loading ? (
-        <div>Loading NFTs...</div>  
+      {NFTs.length==0 ? (
+        <Loader/>
       ) : (
         <NftCardTwo NFTData={NFTs} />
       )}

@@ -1,9 +1,36 @@
-import React from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 //Internal Import
 import Style from "../styles/index.module.css"
 import {HeroSection,Service,BigNftSlider,Subscribe,Title,Category,Filter,NFTCard, Collection,FollowerTab,AudioLive,Slider,Brand} from "../components/ComponentIndex"
-
+import { Web3Context } from '../web3/web3Context'
+import Loader from '../components/Loader/Loader'
 const Home = () => {
+
+  const { fetchNFTs } = useContext(Web3Context);
+  const [NFTs, setNFTs] = useState([]);
+  const [NFTsCopy, setNFTsCopy] = useState([]);
+  const [loading, setLoading] = useState(true);  
+
+  useEffect(() => {
+    const loadNFTs = async () => {
+      try {
+        const fetchedNFTs = await fetchNFTs();
+        if (Array.isArray(fetchedNFTs)) {
+          setNFTs(fetchedNFTs.reverse());
+          setNFTsCopy(fetchedNFTs);
+        } else {
+          console.error('Fetched data is not an array:', fetchedNFTs);
+        }
+      } catch (error) {
+        console.error("Error fetching NFTs:", error);
+      } finally {
+        setLoading(false);  
+      }
+    };
+    loadNFTs();
+  }, [fetchNFTs]);
+
+
   return (
     <div className={Style.homePage} >
       <HeroSection/>
@@ -17,7 +44,7 @@ const Home = () => {
       <Collection/>
       <Title heading="Featured NFTs"  paragraph="Discover the most outstanding NFTs in all topics of life" />
       <Filter/>
-      <NFTCard/>
+      {NFTs.length==0 ? <Loader/>:<NFTCard NFTData={NFTs}/>}
       <Title heading="Browse by category"  paragraph="Explore the most featured categories" />
       <Category/>
       <Subscribe/>
