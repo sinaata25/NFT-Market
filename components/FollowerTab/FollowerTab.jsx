@@ -6,73 +6,53 @@ import Style from "./FollowerTab.module.css"
 import FollowerTabCard from "./FollowerTabCard/FollowerTabCard"
 import images from "../../img"
 
-const FollowerTab = () => {
-    const cardArray=[
-        {
-            background:images.creatorbackground1,
-            user:images.user9
-        },
-        {
-            background:images.creatorbackground2,
-            user:images.user2
-        },
-        {
-            background:images.creatorbackground3,
-            user:images.user3
-        },
-        {
-            background:images.creatorbackground4,
-            user:images.user4
-        },
-        {
-            background:images.creatorbackground5,
-            user:images.user5
-        }
-        ,        {
-            background:images.creatorbackground6,
-            user:images.user6
-        }
-        ,        {
-            background:images.creatorbackground8,
-            user:images.user8
-        }
-    ]
+const FollowerTab = ({topCreators}) => {
+
     const followArray=[        {
         background:images.creatorbackground1,
-        user:images.user10
+        user:images.user10,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground2,
-        user:images.user3
+        user:images.user3,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground3,
-        user:images.user6
+        user:images.user6,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground4,
-        user:images.user9
+        user:images.user9,
+        seller:"10asldjasdasd4654asd1qwe"
     },
 ]
     const newArray=[        {
         background:images.creatorbackground4,
-        user:images.user4
+        user:images.user4,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground6,
-        user:images.user6
+        user:images.user6,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground8,
-        user:images.user8
+        user:images.user8,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground9,
-        user:images.user9
+        user:images.user9,
+        seller:"10asldjasdasd4654asd1qwe"
     },
     {
         background:images.creatorbackground1,
-        user:images.user1
+        user:images.user1,
+        seller:"10asldjasdasd4654asd1qwe"
     }
 ]
     const [popular, setPopular] = useState(true);
@@ -125,7 +105,7 @@ const FollowerTab = () => {
             popular && (
                 <div className={Style.followerTab_box} >
                     {
-                        cardArray.map((el,i)=>(
+                        topCreators.map((el,i)=>(
                             <FollowerTabCard key={i+1} i={i} el={el} />
                         ))
                     }

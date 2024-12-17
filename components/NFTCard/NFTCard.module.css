@@ -81,6 +81,10 @@
     justify-content: center;    
     align-items: center;   
 }
+.link{
+    color: #4c5773;
+    text-decoration: none;
+}
 .NFTCard_box_img_img{
     border-radius: 1rem;
     transition: all.4s ease-in;

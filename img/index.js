@@ -49,7 +49,11 @@ import metamask from "./metamask.png"
 import coinbase from "./coinbase.png"
 import sina from "./sina.JPG"
 import loading from "./loading.gif"
+import logo1 from "./logo1.png"
+import user99 from "./user99.png"
 export default {
+  user99,
+  logo1,
   loading,
   sina,
   bitget,
