@@ -51,7 +51,9 @@ import sina from "./sina.JPG"
 import loading from "./loading.gif"
 import logo1 from "./logo1.png"
 import user99 from "./user99.png"
+import coverai from "./coverai.png"
 export default {
+  coverai,
   user99,
   logo1,
   loading,

@@ -34,7 +34,7 @@ const FollowerTabCard = ({i,el}) => {
         <div className={Style.FollowerTabCard_box_info}>
           <div className={Style.FollowerTabCard_box_info_name}>
               <h4>
-                {el.seller.slice(0,9)}{""}{" "}
+                {el.seller?el.seller.slice(0,9):"Unknown"}{" "}
                 <span>
                   <MdVerified/>
                 </span>
