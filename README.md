@@ -54,7 +54,6 @@ Design principles:
 
 # 🖼 Application Preview
 
-> Make sure you create an `/assets` folder and upload the screenshots there.
 
 ## 🏠 Home Page
 
@@ -67,23 +66,7 @@ Design principles:
 ## 🎵 Audio Collection
 
 <p align="center">
-  <img src="./assets/audio.png" width="90%" />
-</p>
-
----
-
-## 🎬 NFT Videos
-
-<p align="center">
-  <img src="./assets/video.png" width="90%" />
-</p>
-
----
-
-## 👤 Author Profile
-
-<p align="center">
-  <img src="./assets/author.png" width="90%" />
+  <img src="./img/Screenshot 2024-11-03 131649.png" width="90%" />
 </p>
 
 ---
@@ -91,7 +74,7 @@ Design principles:
 ## 🖼 NFT Details Page
 
 <p align="center">
-  <img src="./assets/details.png" width="90%" />
+  <img src="./img/Screenshot 2024-11-03 132001.png" width="90%" />
 </p>
 
 ---
