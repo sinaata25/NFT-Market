@@ -1,4 +1,4 @@
-# 🚀 Cicryp — Production-Grade NFT Marketplace (Web3 Full Stack)
+# 🚀 Cicryp — Production-Grade NFT Marketplace
 
 <p align="center">
   <img src="https://img.shields.io/badge/Solidity-^0.8.x-363636?style=for-the-badge&logo=solidity" />
@@ -9,93 +9,102 @@
 </p>
 
 <p align="center">
-  <b>A full-stack decentralized NFT marketplace built with production-level smart contract architecture.</b>
+  <b>A full-stack decentralized NFT marketplace with real auction mechanics and secure smart contract architecture.</b>
 </p>
 
 ---
 
-# 🧠 Project Vision
+# 🧠 Project Overview
 
-Cicryp is not just a UI-based NFT demo.
+Cicryp is a complete Web3 NFT marketplace demonstrating:
 
-It is a **complete smart contract-driven marketplace** that demonstrates:
+- Auction-based NFT trading
+- Escrow smart contract logic
+- Ownership verification
+- Wallet-based authentication
+- Real Ethereum interaction
 
-- Auction mechanics
-- Escrow-based ETH handling
-- Ownership tracking
-- Marketplace fee logic
-- Wallet authentication
-- Secure bid execution
-
-This project reflects how a real NFT protocol operates under Ethereum constraints.
+This project reflects real-world decentralized marketplace mechanics and production-level Solidity engineering.
 
 ---
 
-# 🏗 System Architecture
+# 🏗 Architecture
 
-
-Frontend (React)
-↓
-Ethers.js Web3 Layer
-↓
+```
+React Frontend
+      ↓
+Ethers.js
+      ↓
 Marketplace Smart Contract
-↓
-ERC721 NFT Contract
-↓
+      ↓
+ERC721 Token Contract
+      ↓
 Ethereum Network
+```
 
+Design principles:
 
-## Design Principles
-
-- Separation of concerns (Token vs Marketplace logic)
-- Minimal trust assumptions
-- On-chain state authority
+- Modular contract separation (Token vs Marketplace)
+- Escrow-based transaction handling
 - Deterministic auction resolution
-- Explicit ownership verification
+- Explicit ownership validation
+- Minimal trust assumptions
 
 ---
 
-# 🔥 Core Smart Contract Features
+# 🖼 Application Preview
 
-### ERC721 Minting
+> Make sure you create an `/assets` folder and upload the screenshots there.
 
-- Unique NFT creation
-- Metadata binding
-- Ownership assignment
+## 🏠 Home Page
 
-### Marketplace Listing
-
-- NFT transfer to escrow
-- Price locking
-- Listing state tracking
-
-### Auction Mechanism
-
-- Time-based bidding
-- Highest bid validation
-- Automatic winner determination
-- Secure ETH handling
-
-### Sale Execution
-
-- Ownership transfer
-- Seller payment
-- Marketplace fee deduction
+<p align="center">
+  <img src="./assets/home.png" width="90%" />
+</p>
 
 ---
 
-# 🔐 Security Considerations
+## 🎵 Audio Collection
 
-- Strict require validations
-- Bid amount comparison checks
-- Owner verification
-- Safe ETH transfers
-- Escrow logic separation
-- Reentrancy-safe transaction flow
+<p align="center">
+  <img src="./assets/audio.png" width="90%" />
+</p>
 
 ---
 
-# 📦 Core Functions
+## 🎬 NFT Videos
+
+<p align="center">
+  <img src="./assets/video.png" width="90%" />
+</p>
+
+---
+
+## 👤 Author Profile
+
+<p align="center">
+  <img src="./assets/author.png" width="90%" />
+</p>
+
+---
+
+## 🖼 NFT Details Page
+
+<p align="center">
+  <img src="./assets/details.png" width="90%" />
+</p>
+
+---
+
+## 🔐 Wallet Connection
+
+<p align="center">
+  <img src="./assets/wallet.png" width="90%" />
+</p>
+
+---
+
+# 🔥 Smart Contract Capabilities
 
 ```solidity
 function createToken(string memory tokenURI) public returns (uint);
@@ -104,131 +113,120 @@ function placeBid(uint tokenId) public payable;
 function executeSale(uint tokenId) public;
 function fetchMarketItems() public view returns (...);
 function fetchMyNFTs() public view returns (...);
-🌐 Web3 Integration
-Wallet Support
+```
 
-MetaMask
+---
 
-Coinbase Wallet
+# 🔐 Security Design
 
-Bitget
+- Bid amount validation
+- Owner verification
+- Safe ETH transfers
+- Escrow separation logic
+- Access control enforcement
+- Reentrancy-safe flow
+- State consistency guarantees
 
-Features
+---
 
-Wallet authentication
+# 🌐 Web3 Integration
 
-Real-time balance interaction
+Wallets Supported:
 
-On-chain transaction signing
+- MetaMask
+- Coinbase Wallet
+- Bitget Wallet
 
-Auction participation
+Capabilities:
 
-🖥 Application Features
+- On-chain transaction signing
+- Real-time auction participation
+- Wallet-based identity
+- Balance interaction
+- Secure transaction confirmation flow
 
-NFT Minting
+---
 
-NFT Auction Listing
+# 🛠 Tech Stack
 
-Real-Time Countdown
+## Blockchain
+- Solidity ^0.8.x
+- Hardhat
+- Ethereum
+- Ethers.js
 
-Bid History Tracking
+## Frontend
+- React.js
+- Web3Modal
+- Tailwind CSS / CSS Modules
 
-Creator Profiles
+## Development
+- Node.js
+- Hardhat Local Network
+- Sepolia Testnet Ready
 
-Follow / Like System
+---
 
-Ownership Provenance
+# ⚙️ Installation
 
-Category-based Filtering (Audio / Video / Collectibles)
-
-Fully Responsive UI
-
-🛠 Tech Stack
-Blockchain
-
-Solidity ^0.8.x
-
-Hardhat
-
-Ethereum
-
-Ethers.js
-
-Frontend
-
-React.js
-
-Web3Modal
-
-CSS Modules / Tailwind
-
-Development
-
-Node.js
-
-Hardhat Local Network
-
-Sepolia Testnet Ready
-
-⚙️ Installation
+```bash
 git clone https://github.com/sinaata25/NFT-Market.git
 cd NFT-Market
 npm install
 npm run dev
-🚀 Smart Contract Deployment
+```
+
+---
+
+# 🚀 Deploy Smart Contracts
+
+```bash
 npx hardhat compile
 npx hardhat run scripts/deploy.js --network localhost
+```
 
 Testnet deployment:
 
+```bash
 npx hardhat run scripts/deploy.js --network sepolia
-📊 What This Project Demonstrates
+```
 
-✔ Deep understanding of Solidity
-✔ Auction-based marketplace logic
-✔ Escrow contract flow
-✔ Web3 frontend integration
-✔ Smart contract architecture design
-✔ Ethereum transaction lifecycle handling
-✔ Production-style UI implementation
+---
 
-📈 Future Enhancements
+# 📊 Engineering Highlights
 
-ERC2981 Royalty support
+✔ Auction-based marketplace logic  
+✔ Escrow smart contract implementation  
+✔ Real Web3 wallet integration  
+✔ Modular contract architecture  
+✔ Secure ETH handling  
+✔ Deterministic sale execution  
+✔ Production-level UI  
 
-IPFS metadata storage
+---
 
-Gas optimization
+# 📈 Future Improvements
 
-Event indexing for subgraph integration
+- ERC2981 Royalty Support
+- IPFS Metadata Storage
+- Gas Optimization
+- Subgraph Indexing
+- Upgradeable Contracts (UUPS Pattern)
+- Advanced Analytics Dashboard
 
-Multi-chain deployment
+---
 
-Upgradeable contract pattern (UUPS)
+# 👨‍💻 Developer
 
-👨‍💻 Developer
+**Sina Ataei**  
+Blockchain Engineer | Solidity Developer  
 
-Sina Ataei
-Blockchain Engineer | Solidity Developer
+GitHub: https://github.com/sinaata25  
+LinkedIn: https://linkedin.com/in/sinaataei25  
+Email: sina.ata25@gmail.com  
 
-GitHub: https://github.com/sinaata25
+---
 
-LinkedIn: https://linkedin.com/in/sinaataei25
-
-Email: sina.ata25@gmail.com
-
-💬 Why This Matters
-
-This project demonstrates practical Web3 engineering skills beyond tutorials:
-
-Contract design thinking
-
-Security awareness
-
-Auction mechanics implementation
-
-Real blockchain interaction
-
-Clean full-stack integration
-
-<p align="center"> Built with precision on Ethereum ⚡ </p> ```
+<p align="center">
+Built with precision on Ethereum ⚡
+</p>
