@@ -59,7 +59,7 @@ Design principles:
 ## 🏠 Home Page
 
 <p align="center">
-  <img src="./assets/home.png" width="90%" />
+  <img src="./img/Screenshot 2024-11-03 131545.png" width="90%" />
 </p>
 
 ---
