@@ -82,7 +82,7 @@ Design principles:
 ## 🔐 Wallet Connection
 
 <p align="center">
-  <img src="./assets/wallet.png" width="90%" />
+  <img src="./img/Screenshot 2024-11-03 132115.png" width="90%" />
 </p>
 
 ---
